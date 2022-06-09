@@ -106,3 +106,28 @@ struct Derived : public Base
 };
 
 
+// POD types
+//
+// When a class or struct is both trivial and standard-layout, it is a POD (Plain Old Data) type.
+// So, POD = StandardLayout + Trivial.
+// The memory layout of POD types is therefore contiguous and each member has a higher address than the member that was declared before it,
+// so that byte for byte copies and binary I/O can be performed on these types.
+// Scalar types such as int are also POD types.
+// POD types that are classes can have only POD types as non-static data members.
+
+struct POD
+{
+   int a;
+   int b;
+};
+
+
+// Literal types
+// A literal type is one whose layout can be determined at compile time.
+// The following are the literal types:
+//	- Void
+//	- Scalar types
+//	- References
+//	- Arrays of void, scalar types or references
+//	- A class that has a trivial destructor, and one or more constexpr constructors that are not move or copy constructors.
+//	  Additionally, all its non-static data members and base classes must be literal types and not volatile.
