@@ -79,3 +79,30 @@ int main()
 //	- meets one of these conditions:
 //		- no non-static data member in the most-derived class and no more than one base class with non-static data members
 //		- or has no base classes with non-static data members
+
+struct StdLayout
+{
+	// Same access
+	int i;
+	int j;
+
+	// User-defined constructor OK
+	StdLayout(int a, int b) : i(a), j(b) {} 
+};
+
+// The last two requirements demo:
+struct Base
+{
+   int i;
+   int j;
+};
+
+// std::is_standard_layout<Derived> == false...
+struct Derived : public Base
+{
+	//...due to non-static data members
+	int x;
+	int y;
+};
+
+
