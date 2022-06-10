@@ -6,9 +6,7 @@
 template <int* int_ptr>
 void print_ptr()
 {
-	for(auto i = n; i!=0; --i)
-		std::cout << *int_ptr << ' ';
-	std::cout << std::endl;
+	std::cout << *int_ptr << std::endl;
 }
 
 int main()
