@@ -7,9 +7,9 @@
 //	- The data memebers all must have literal type
 //	- The class must have at least one constexpr ctor
 //	- If a data member has an in-class initializer,
-//	  the initializer for a nenber if built-in type must be a constant expression;
+//	  the initializer for a member of built-in type must be a constant expression;
 //	  for a member of class type, the initializer must use the members own constexpr ctor
-//	- The must use default definition for its destructor
+//	- The class must use default definition for its destructor
 
 struct Literal 
 {
