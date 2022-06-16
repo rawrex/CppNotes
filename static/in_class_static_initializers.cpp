@@ -24,6 +24,8 @@ class Foo {
 	constexpr static int data_c = 21;
 
 	// OK, the member is a static constexpr and the initializer is a constexpr
+	// Such a member is itself a constant expression 
+	// and can be used where a constant expression is required
 	constexpr static Literal data_d = global_data;
 
 };
