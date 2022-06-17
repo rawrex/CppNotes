@@ -49,5 +49,9 @@ int main() {
 	// If we do not define the Foo::data outside of the class' scope, we'll get:
 	// undefined reference to `Foo::data_b'
 	print(Foo::data_b);
+
+	// Best practice: even if we do have an in-class initializer,
+	// We ordinarly should define the member outside the class definition
+	// The best place to provide such definition is in a source file with other definitions.
 	
 }
