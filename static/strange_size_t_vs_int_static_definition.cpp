@@ -16,7 +16,19 @@ struct Foo {
 
 };
 
-// The context for a member to be used where it won't be a simple substitution of the value
+// If we do supply the outside definition, looking in the object file will show us
+// That Foo::integer is in a read only data seciton: "R Foo::integer"
+// const int Foo::integer; 
+
+// Same for any other data member of the Foo class
+// const unsigned Foo::uint; 
+
+// But if we do not supply outside definition for the Foo::integer
+// We'll get: "U Foo::integer". Which means that the member is not defined.
+// While we do not get the same status for any other data member in Foo
+
+
+// The test context for a member to be used where it won't be a simple substitution of the value
 void print(const int& i) { std::cout << "print(" << i << ')' << std::endl; }
 
 int main() {
