@@ -3,26 +3,29 @@
 
 class YoungGroup
 {
+	// Our static data member
 	static unsigned group_max_age;
 
 	// Note that init_group_max_age is private
 	static unsigned init_group_max_age()
 	{
+		// Simplified use of our initializer
 		const unsigned init_age = 25;	
 		return init_age;
 	}
 
+	// Other data members
 	unsigned population;
 	std::string name;
 
 public:
 	YoungGroup( unsigned p = 0, const std::string& n = "No Name") : population(p), name(n) {}
 
+	// Overloaded getter and setter for the static data member
 	static unsigned max_age()
 	{
 		return group_max_age;
 	}
-
 	static unsigned max_age(const unsigned & new_age) 
 	{
 		group_max_age = new_age;
