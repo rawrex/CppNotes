@@ -39,7 +39,7 @@ struct Foo {
 // E.g. If we pass the Foo::data_b to a function that takes a const int&:
 void print(const int& i) { std::cout << i << std::endl; }
 
-// If the initializer if provided in the class,
+// If the initializer is provided in the class,
 // the member's definition outside must not specify an initial value:
 const int Foo::data_b;
 
