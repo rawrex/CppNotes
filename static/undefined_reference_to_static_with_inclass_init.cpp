@@ -30,4 +30,9 @@ int main() {
 	// undefined reference to `Foo::integer'
 	// Since we pass the exact type, so no conversions, no temporaries{
 	print(Foo::integer);
+
+	// We can "avoid" this linkage error even in this case if we explicitly make a temporary
+	print(static_cast<int>(Foo::integer));
+	// Or like so
+	print(+Foo::integer);
 }
