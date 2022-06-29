@@ -22,25 +22,64 @@ struct Foo
 
 	Foo(int i = 21, Foo* foo_ptr = nullptr) : data(i), ptr_mem(foo_ptr) {}
 };
-Foo Foo::static_mem = Foo(63);
+
+// Initialize the static member 
+Foo Foo::static_mem = Foo(42);
 
 
-// And another unusual use.
+// Another unusual use.
 // We can use a static data mem as a defatult argument.
 class Bar 
 {
 	int data;
-	static const int default_data = 84;
+	static const int default_data = 63;
 public:
 	Bar(int data_init = default_data) : data(data_init) {}
 };
 
 
+// Lets try both uses combined:
+
+class Baz
+{
+	int data;
+	static Baz default_baz;
+public:
+	// Test funciton with the default argument of the same class type
+	void func(const Baz& baz = default_baz) 
+	{ 
+		std::cout << "Baz::func is called\nbaz.data: " << baz.data << std::endl; 
+	}
+	
+	Baz(int i) : data(i) {}
+	Baz() = delete;
+};
+// Provide the value for the default baz
+Baz Baz::default_baz = Baz(84);
+
 int main() 
 {
+	// Will have the default value for the data, 21
 	Foo foo_1;
+	
+	// Supply the value for the data, 42
+	// Supply reference to another Foo
 	Foo foo_2(42, &foo_1);
-	std::cout << foo_2.ref_mem.data << std::endl;
-	std::cout << foo_2.static_mem.data << std::endl;
+	
+	// Prints 21
+	std::cout << foo_2.ref_mem.data << '\n' << std::endl;
 
+	// Prints 42
+	std::cout << foo_2.static_mem.data << '\n' << std::endl;
+
+	// Prints 42
+	std::cout << foo_2.ref_mem.static_mem.data << '\n' << std::endl;
+
+	// Funny(?)
+	// Prints 42
+	std::cout << foo_1.static_mem.static_mem.static_mem.static_mem.static_mem.static_mem.static_mem.data << '\n' << std::endl;
+
+	// Call to func will utilize both of the static member privileges
+	Baz baz(105);
+	baz.func();
 }
