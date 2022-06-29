@@ -31,12 +31,20 @@ Foo Foo::static_mem = Foo(42, &absolute_foo);
 
 // Another unusual use.
 // We can use a static data mem as a defatult argument.
+// A non-static member cannot be used as a default argument, since its value is a part of an object
 class Bar 
 {
 	int data;
 	static const int default_data = 63;
+	int nondefault_data = 63;
 public:
 	Bar(int data_init = default_data) : data(data_init) {}
+
+	// error: invalid use of non-static data member ‘Bar::nondefault_data’
+	// Bar(int i, int data_init = nondefault_data) : data(data_init) {}
+
+	// error: ‘this’ may not be used in this context
+	// Bar(int i, int data_init = this.nondefault_data) : data(data_init) {}
 };
 
 
