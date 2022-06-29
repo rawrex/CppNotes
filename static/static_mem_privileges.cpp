@@ -23,6 +23,7 @@ struct Foo
 	Foo(int i = 21, Foo* foo_ptr = nullptr) : data(i), ptr_mem(foo_ptr) {}
 };
 
+// Global variable to be passed to the static data member of the Foo class
 Foo absolute_foo(1);
 // Initialize the static member 
 Foo Foo::static_mem = Foo(42, &absolute_foo);
