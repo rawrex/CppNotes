@@ -23,8 +23,9 @@ struct Foo
 	Foo(int i = 21, Foo* foo_ptr = nullptr) : data(i), ptr_mem(foo_ptr) {}
 };
 
+Foo absolute_foo(1);
 // Initialize the static member 
-Foo Foo::static_mem = Foo(42);
+Foo Foo::static_mem = Foo(42, &absolute_foo);
 
 
 // Another unusual use.
@@ -67,17 +68,23 @@ int main()
 	Foo foo_2(42, &foo_1);
 	
 	// Prints 21
-	std::cout << foo_2.ref_mem.data << '\n' << std::endl;
+	std::cout << foo_2.ref_mem.data << std::endl;
 
 	// Prints 42
-	std::cout << foo_2.static_mem.data << '\n' << std::endl;
+	std::cout << foo_2.static_mem.data << std::endl;
 
 	// Prints 42
-	std::cout << foo_2.ref_mem.static_mem.data << '\n' << std::endl;
+	std::cout << foo_2.ref_mem.static_mem.data << std::endl;
 
 	// Funny(?)
 	// Prints 42
-	std::cout << foo_1.static_mem.static_mem.static_mem.static_mem.static_mem.static_mem.static_mem.data << '\n' << std::endl;
+	std::cout << foo_1.static_mem.static_mem.static_mem.static_mem.static_mem.static_mem.static_mem.data << std::endl;
+
+	// Prints 1
+	std::cout << foo_1.static_mem.ref_mem.data << std::endl;
+
+	// Prints 42
+	std::cout << foo_1.static_mem.ref_mem.static_mem.ref_mem.static_mem.data << std::endl;
 
 	// Call to func will utilize both of the static member privileges
 	Baz baz(105);
