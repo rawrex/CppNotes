@@ -17,8 +17,13 @@ while (std::cin >> foo)
 	// Do work...
 }
 
-// stream denotes one of the IO types
-stream::iostate;
+// Machine-dependent integral type used as a collection of bits for fetching the state of a stream
+// (stream denotes one of the IO types)
+stream::iostate;	
+
+// The IO classes define four constexpr values of type iostate which represent a particular bit patter.
+// These are used to indicate particular kinds of IO conditions.
+// We use these with bitwise operators to test/set one or more flags.
 stream::badbit;
 stream::failbit;
 stream::eofbit;
