@@ -60,10 +60,20 @@ strm.fail();	// In addition, fail returns true if badbit is set
 if (std::cin);
 if (!std::cin.fail());
 
-
-strm.clear();
-strm.setstate();
+// Returns an iostate value of the current state of the stream
 strm.rdstate();
+
+// Turns on the given condition bit(s)
+strm.setstate();
+
+// Overloaded
+// One overload takes no arguments, turns off all the failure bits
+// The other takes an argument of type iostate which represents the new state of the stream
+strm.clear();
+
+
+// To turn on a single condition flag, we use rdstate along with bitwise operators to produce desired result
+std::cin.clear
 
 int main() {
 
