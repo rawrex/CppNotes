@@ -9,8 +9,13 @@
 // That let us access and manipulate the condition state of a stream.
 
 // We can work (read/write) only on a stream that is not in an error.
-// We should ordinary check whether a stream is valid before attempt to use it.
+// Thus, we should ordinary check whether a stream is valid before attempt to use it.
+// The easiest way is to use the stream object as a condition:
 
+while (std::cin >> foo)
+{
+	// Do work...
+}
 
 // stream denotes one of the IO types
 stream::iostate;
