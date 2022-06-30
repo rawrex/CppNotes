@@ -43,13 +43,25 @@ stream::eofbit;
 // If any of the above three states is set, then the condition that evaluates the stream will fail.
 stream::goodbit;
 
-strm.eof();
-strm.fail();
-strm.bad();
-strm.good();
-strm.clear();
 
+// The lib also defines a set of funcitons to interrogate the state of these falgs.
+
+// Returns true if none of the error bits is set.
+strm.good();
+
+// These three return true if the correspoding bit is on.
 strm.eof();
+strm.bad();
+strm.fail();	// In addition, fail returns true if badbit is set
+				// The right wat to determine the overal state of stream 
+				// is to use either good() or fail()
+
+// These two are equivalent in the conditional sense:
+if (std::cin);
+if (!std::cin.fail());
+
+
+strm.clear();
 strm.setstate();
 strm.rdstate();
 
