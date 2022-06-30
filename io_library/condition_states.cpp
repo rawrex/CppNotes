@@ -24,9 +24,23 @@ stream::iostate;
 // The IO classes define four constexpr values of type iostate which represent a particular bit patter.
 // These are used to indicate particular kinds of IO conditions.
 // We use these with bitwise operators to test/set one or more flags.
+
+// Indicates a system-level failure.
+// An unrecoverable read or write error.
+// It is usually not possible to use a stream once this bit has been set.
 stream::badbit;
+
+// Set after a recoverable error 
+// (e.g. read a character when a numeric value was expected).
 stream::failbit;
+
+// Reading up to the end-of-file sets eofbit.
+// If end-of-file does not follow a valid input, failbit is also set.
 stream::eofbit;
+
+// Guaranteed to have 0 value.
+// Indicates no failing of the stream.
+// If any of the above three states is set, then the condition that evaluates the stream will fail.
 stream::goodbit;
 
 strm.eof();
