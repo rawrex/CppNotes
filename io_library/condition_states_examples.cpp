@@ -11,10 +11,11 @@ void test_cin()
 		print("good");	
 }
 
-int main() {
-
+void basic_set_clear_test()
+{
 	std::cin.setstate(std::cin.eofbit);
 	std::cin.setstate(std::cin.failbit);
+
 	// Clear, leaving only the eofbit set
 	print("Set the eofbit and failbit:");
 	test_cin();
@@ -33,4 +34,8 @@ int main() {
 	std::cin.clear();
 	print("\nCleared all:");
 	test_cin();
+}
+
+int main() {
+	basic_set_clear_test();
 }
