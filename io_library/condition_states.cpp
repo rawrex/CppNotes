@@ -67,7 +67,7 @@ strm.rdstate();
 strm.setstate();
 
 // Overloaded, one overload takes no arguments, turns off all the failure bits
-// The other takes an argument of type iostate which represents the flags we want to clear
+// The other takes an argument of type iostate which represents the new state of the stream
 // Note, if state is goodbit (which is zero) all error flags are cleared,
 // That's why goodbit is guaranteed to be zero.
 void clear (iostate state = goodbit);
@@ -79,9 +79,9 @@ strm.clear();
 // depending on the latest settings passed to member exceptions.
 
 
-// To turn on a single condition flag, we use rdstate along with bitwise operators to produce desired result
-std::cin.clear
+// To turn on a single condition flag,
+// we use rdstate along with bitwise operators to produce desired result.
+// Turns off failbit and badbit leaving eofbit untouched
+std::cin.clear(std::cin.rdstate() & std::cin.failbit & std::cin.badbit);
 
-int main() {
-
-}
+int main() {}
