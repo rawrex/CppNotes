@@ -52,12 +52,12 @@ strm.good();
 // These three return true if the correspoding bit is on.
 strm.eof();
 strm.bad();
-strm.fail();	// In addition, fail returns true if badbit is set
-				// The right wat to determine the overal state of stream 
-				// is to use either good() or fail()
+strm.fail();	// fail() returns true if failtbit or badbit is set
+				// So to determine the overal state of stream we use either good() or fail()
 
 // These two are equivalent in the conditional sense:
 if (std::cin);
+if (std::cin.good());	// ?
 if (!std::cin.fail());
 
 // Returns an iostate value of the current state of the stream
