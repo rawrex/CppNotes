@@ -60,12 +60,26 @@ if (std::cin);
 if (std::cin.good());	// ?
 if (!std::cin.fail());
 
+
+// Fetching the conditions
+//
 // Returns an iostate value of the current state of the stream
 strm.rdstate();
 
+
+// Specifying the conditions
+//
 // Turns on the given condition bit(s)
 strm.setstate();
 
+auto prev_state = strm.rdstate();	// remember the currrent state
+strm.clear();						// clear all error bits (if any)
+process_input(strm);				// get more input
+strm.setstate(prev_state);			// restore the previous state
+
+
+// Clearing the conditions
+//
 // Overloaded, one overload takes no arguments, turns off all the failure bits
 // The other takes an argument of type iostate which represents the new state of the stream
 // Note, if state is goodbit (which is zero) all error flags are cleared,
@@ -79,6 +93,8 @@ strm.clear();
 // depending on the latest settings passed to member exceptions.
 
 
+// E.g.
+//
 // To turn on a single condition flag,
 // we use rdstate along with bitwise operators to produce desired result.
 // Turns off failbit and badbit leaving eofbit untouched
