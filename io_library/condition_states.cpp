@@ -66,9 +66,9 @@ strm.rdstate();
 // Turns on the given condition bit(s)
 strm.setstate();
 
-// Overloaded
-// One overload takes no arguments, turns off all the failure bits
-// The other takes an argument of type iostate which represents the new state of the stream
+// Overloaded, one overload takes no arguments, turns off all the failure bits
+// The other takes an argument of type iostate which represents the new state of the stream:
+void clear (iostate state = goodbit);
 strm.clear();
 
 
