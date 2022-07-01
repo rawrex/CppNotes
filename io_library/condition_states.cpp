@@ -21,7 +21,7 @@ while (std::cin >> foo)
 // (stream denotes one of the IO types)
 stream::iostate;	
 
-// The IO classes define four constexpr values of type iostate which represent a particular bit patter.
+// The IO classes define four constexpr values of type iostate which represent a particular bit pattern.
 // These are used to indicate particular kinds of IO conditions.
 // We use these with bitwise operators to test/set one or more flags.
 
