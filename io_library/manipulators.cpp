@@ -9,6 +9,11 @@ void sleep(unsigned duration = 3)
 
 int main() {
 
+	// Since our std::cout goes to a terminal, it is (usually) line buffered.
+	// If we were to direct the std::cout to a pipe, file, or some other non-interactive destination,
+	// the endl forces the data out even if the stream is fully buffered, as it usually will be.
+	// Thus, we place \n in the line where we already have flush requests.
+
 	// Ends the current line and flushes the buffer
 	std::cout << "endl" << std::endl;	// No need for \n at the end of the message
 	std::cout << "...had no manipulators, printed with the next flush";
@@ -36,5 +41,6 @@ int main() {
 	std::cout << "...had no manipulators, printed on the program termination";
 	std::cout << '\n';
 	sleep();
+
 
 }
