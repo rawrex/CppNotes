@@ -42,5 +42,7 @@ int main() {
 	std::cout << '\n';
 	sleep();
 
+	// Note, if a program crashes, there can be data sitting in a buffer.
+	// Make sure to flush the buffer when debug.
 
 }
