@@ -20,6 +20,7 @@ void sleep(unsigned duration = sleep_time)
 //	- Takes a pointer to an ostream and ties itself to that stream
 //
 // Multiple streams can tie themselves to the same output stream.
+// But each stream can be tied to at most one stream at a time.
 
 
 void printToTiedStream()
