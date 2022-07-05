@@ -15,6 +15,34 @@ void sleep(unsigned duration = sleep_time)
 //
 // The library, by default, ties cout to cin.
 
+// There are two overloads fot the tie:
+//	- Takes no arguments
+//	- Takes a pointer to an ostream and ties itself to that stream
+//
+// Multiple streams can tie themselves to the same output stream.
+
+
+void printToTiedStream()
+{
+	std::ostream* current_stream = std::cin.tie();
+	// Dereference the pointer and send output to the stream
+	*current_stream << "Print to the stream to which the std::cin is tied now.\n";
+}
+void untieShowcase()
+{
+	int input = 0;
+
+	// Untie the std::cin from the std::cout
+	std::cin.tie(nullptr);
+
+	std::cout << "(Isn't guaranteed to be printed)\nYour input: ";
+	std::cin >> input;
+
+	// Tie the input stream back to the std::cout
+	std::cin.tie(&std::cout);
+	
+}
+
 void cantRely()
 {
 	int answer = 0;
@@ -33,6 +61,8 @@ void cantRely()
 
 int main() {
 
+	printToTiedStream();
+	untieShowcase();
 	cantRely();
 	
 }
