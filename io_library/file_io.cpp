@@ -1,9 +1,12 @@
 #include <iostream>
 #include <fstream>
 
+
+
 void readFile(const std::string & filename)
 {
 	// Create a file stream and open the file
+	// Default file mode depends on the type of the stream, thus read-only
 	std::ifstream input_file(filename);
 	std::string current_line;
 
@@ -12,8 +15,8 @@ void readFile(const std::string & filename)
 		std::cout << current_line << '\n';
 }
 
-int main() {
+// In addition to the inherited operations, fstream defines few file specific ones.
 
+int main() {
 	readFile("test.file");
-		
 }
