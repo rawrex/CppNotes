@@ -7,7 +7,8 @@ void readFile(const std::string & filename)
 {
 	// Create a file stream and open the file
 	// Default file mode depends on the type of the stream, thus read-only
-	std::ifstream input_file(filename);
+	// The std::string as a filename only since C++11
+	std::ifstream input_file(filename);	
 	std::string current_line;
 
 	// We can use the IO operators and getline in the usual way on file streams
