@@ -1,8 +1,10 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+	
+int sleep_time = 3;
 
-void sleep(unsigned duration)
+void sleep(unsigned duration = sleep_time)
 {
 	std::this_thread::sleep_for(std::chrono::seconds(duration));
 }
@@ -13,15 +15,14 @@ void sleep(unsigned duration)
 //
 // The library, by default, ties cout to cin.
 
-void weCantRelyOnItAlways()
+void cantRely()
 {
 	int answer = 0;
-	int sleep_time = 3;
 
 	// Note, that sometimes we need to explicitly manage the flushing
 	// Even tought the output buffer will be flushed before the input
 	std::cout << "Multiply 9 by 13, I generously give you " << sleep_time << " sec. to think... ";
-	sleep(sleep_time);
+	sleep();
 
 	// This will be printed (along with the print above) right before the request for input
 	std::cout << "Ok! Time's up! Your answer: ";
@@ -31,6 +32,6 @@ void weCantRelyOnItAlways()
 
 int main() {
 
-	weCantRelyOnItAlways();
+	cantRely();
 	
 }
