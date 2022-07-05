@@ -21,6 +21,7 @@ void cantRely()
 
 	// Note, that sometimes we need to explicitly manage the flushing
 	// Even tought the output buffer will be flushed before the input
+	// Here, it will be too late, since the timed prompt won't function as we intend it to:
 	std::cout << "Multiply 9 by 13, I generously give you " << sleep_time << " sec. to think... ";
 	sleep();
 
