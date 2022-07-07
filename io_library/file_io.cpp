@@ -18,19 +18,6 @@ void readFile(const std::string & filename = default_filename)
 		print(current_line + '\n');
 }
 
-void handleFailedOpen(const std::string & filename)
-{
-	print("Failed to open file: '" + filename);
-	if(input_file_stream.fail())
-	{
-		print("Failbit is set for the input file stream. Clearing it!");
-		// We need to clear the state of the stream before using it further
-		input_file_stream.clear();
-		print("Calling with the default file.");
-		// Note the mutual recursion
-		openClose(default_filename);
-	}
-}
 
 void openClose(const std::string & filename)
 {
@@ -42,14 +29,22 @@ void openClose(const std::string & filename)
 		print("Opened successfully: '" + filename + "'");
 	else
 		// If a call to open fails, failbit is set
-		handleFailedOpen(filename);	
+		// And we will need to handle it (clear the state of the stream)
+		// Before using it further.
+		print("Failed to open file: '" + filename);
 }
 
-void openAnotherFileSameStream()
+void openAnotherFileSameStream(std::fstream& fstream, const std::string& new_filename)
 {
 	// We can associate another file with the same file stream
 	// In order to do so we first need to close the existing file,
 	// Once it is closed, we can open a new file.
+	fstream.close();
+	fstream.open(new_filename);
+	if(fstream)
+		print("Opened a new file for an existing stream. File: '" + new_filename + "'.");
+	else
+		print("Something wrong with the new file '" + new_filename + "'.");
 }
 
 void alreadyOpenedFile()
@@ -67,5 +62,5 @@ void alreadyOpenedFile()
 
 int main() {
 	// readFile("test.file");
-	openClose("nonexistent.file");
+	openClose("test.file");
 }
