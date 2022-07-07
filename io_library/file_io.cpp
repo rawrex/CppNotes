@@ -44,6 +44,11 @@ void openClose(const std::string & filename)
 		// If a call to open fails, failbit is set
 		handleFailedOpen(filename);		
 }
+
+void alreadyOpenedFile()
+{
+	// Trying to open an already opened file will result in failbit set for the file stream.
+}
 		
 	
 
