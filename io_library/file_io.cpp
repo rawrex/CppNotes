@@ -5,34 +5,34 @@ void print(const std::string& msg) { std::cout << msg << std::endl; }
 const std::string test_filename("test.file");
 const std::string another_filename("another_test.file");
 
-void readFile(const std::string & filename = test_filename)
+void readFromFile()
 {
 	// Create a file stream and open the file.
 	// Default file mode depends on the type of the stream, thus read-only.
 	// The std::string as a filename only since C++11.
-	std::ifstream input_file(filename);	
+	std::ifstream input_file(test_filename);	
 	std::string current_line;
+
+	print("Reading from file: '" + test_filename + "':");
 
 	// We can use the IO operators and getline in the usual way on file streams.
 	// As we would have done with any other inherited object where a parent was expected.
 	while(std::getline(input_file, current_line))
-		print(current_line + '\n');
+		print(current_line);
 }
 
 
-void openClose(const std::string & filename)
+void openClose()
 {
-	std::ifstream input_file_stream;	
-	input_file_stream.open(filename);
-
-	// It is usually a good idea to verify that open succeeded
-	if(input_file_stream)				
-		print("Opened successfully: '" + filename + "'");
+	std::ifstream ifstream;	
+	ifstream.open(test_filename);			// Explicitly open a file for this file stream
+	if(test_filename)						// It is usually a good idea to verify that open succeeded
+		print("Opened successfully: '" + test_filename + "'");
 	else
 		// If a call to open fails, failbit is set
 		// And we will need to handle it (clear the state of the stream)
 		// Before using it further.
-		print("Failed to open file: '" + filename);
+		print("Failed to open file: '" + test_filename);
 }
 
 void openAnotherFileSameStream()
@@ -43,7 +43,7 @@ void openAnotherFileSameStream()
 
 	std::fstream fstream(test_filename);	// Create a stream and associate it with a file
 	fstream.close();						// Close the associated file
-	fstream.open(another_filename);				// Reopen a new file with the same stream
+	fstream.open(another_filename);			// Reopen a new file with the same stream
 
 	if(fstream)
 		print("Opened a new file for an existing stream. File: '" + another_filename + "'.");
@@ -82,7 +82,11 @@ void closeClosedFile()
 }
 		
 int main() {
-	// readFile("test.file");
+	
+	// Read from file and print its contents line by line
+	readFromFile();
+
+	// Open a file, checking if it is ok to open it
 	openClose(test_filename);
 
 	// Open a file for this stream to open another file for it later
@@ -94,5 +98,6 @@ int main() {
 	// Try to use the stream again
 	openAnotherFileSameStream();
 
+	// Double close
 	closeClosedFile();
 }
