@@ -51,12 +51,16 @@ void openAnotherFileSameStream(std::fstream& fstream, const std::string& new_fil
 	// Or no name at all (if it represents an anonymous pipe, for instance)
 }
 
-void alreadyOpenedFile(std::fstream& fstream)
+void alreadyOpenedFile()
 {
 	// Calling open on a file stream that's already open
 	// will result in failbit set for the file stream.
 	// Thus, in such case, we will need to handle such situation before further processing.
-	fstream.open(default_filename);
+
+	std::fstream fstream;				// Create a file stream, no file is associated.
+	fstream.open(default_filename);		// Explicitly associate a file with the file stream
+	fstream.open(default_filename); 	// Second call to open will set the failbit,
+										// Rendering the stream unusable for now
 	if(fstream.fail())
 	{
 		print("Tried to call open for a stream which already has an opened file. Failbit is set.");
@@ -82,7 +86,7 @@ int main() {
 	openAnotherFileSameStream(ifile, default_filename);
 
 	// Try to call open on an "opened" file stream, fail, clear the state
-	alreadyOpenedFile(ifile);
+	alreadyOpenedFile();
 
 	// Try to use the stream again
 	openAnotherFileSameStream(ifile, default_filename);
