@@ -42,13 +42,24 @@ void openClose(const std::string & filename)
 		print("Opened successfully: '" + filename + "'");
 	else
 		// If a call to open fails, failbit is set
-		handleFailedOpen(filename);		
+		handleFailedOpen(filename);	
+}
+
+void openAnotherFileSameStream()
+{
+	// We can associate another file with the same file stream
+	// In order to do so we first need to close the existing file,
+	// Once it is closed, we can open a new file.
 }
 
 void alreadyOpenedFile()
 {
-	// Trying to open an already opened file will result in failbit set for the file stream.
+	// Calling open on a file stream that's already open
+	// will result in failbit set for the file stream.
+	// Thus, in such case, we will need to handle such situation before further processing.
+
 }
+
 		
 	
 
