@@ -35,18 +35,20 @@ void openClose(const std::string & filename)
 		print("Failed to open file: '" + filename);
 }
 
-void openAnotherFileSameStream(std::fstream& fstream, const std::string& new_filename)
+void openAnotherFileSameStream()
 {
 	// We can associate another file with the same file stream
 	// In order to do so we first need to close the existing file,
 	// Once it is closed, we can open a new file.
-	std::fstream fstream(test_filename);
-	fstream.close();
-	fstream.open(new_filename);
+
+	std::fstream fstream(test_filename);	// Create a stream and associate it with a file
+	fstream.close();						// Close the associated file
+	fstream.open(another_filename);				// Reopen a new file with the same stream
+
 	if(fstream)
-		print("Opened a new file for an existing stream. File: '" + new_filename + "'.");
+		print("Opened a new file for an existing stream. File: '" + another_filename + "'.");
 	else
-		print("Something wrong with the new file '" + new_filename + "'.");
+		print("Something wrong with the new file.");
 
 	// Note, we cannot extract the current filename for the stream.
 	// The underlying file may have several names (if it has multiple hard links)
@@ -84,14 +86,13 @@ int main() {
 	openClose(test_filename);
 
 	// Open a file for this stream to open another file for it later
-	std::fstream ifile("test_2.file");	
-	openAnotherFileSameStream(ifile, test_filename);
+	openAnotherFileSameStream();
 
 	// Try to call open on an "opened" file stream, fail, clear the state
 	alreadyOpenedFile();
 
 	// Try to use the stream again
-	openAnotherFileSameStream(ifile, test_filename);
+	openAnotherFileSameStream();
 
 	closeClosedFile();
 }
