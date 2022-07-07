@@ -45,22 +45,47 @@ void openAnotherFileSameStream(std::fstream& fstream, const std::string& new_fil
 		print("Opened a new file for an existing stream. File: '" + new_filename + "'.");
 	else
 		print("Something wrong with the new file '" + new_filename + "'.");
+
+	// Note, we cannot extract the current filename for the stream.
+	// The underlying file may have several names (if it has multiple hard links)
+	// Or no name at all (if it represents an anonymous pipe, for instance)
 }
 
-void alreadyOpenedFile()
+void alreadyOpenedFile(std::fstream& fstream)
 {
 	// Calling open on a file stream that's already open
 	// will result in failbit set for the file stream.
 	// Thus, in such case, we will need to handle such situation before further processing.
-
+	fstream.open(default_filename);
+	if(fstream.fail())
+	{
+		print("Tried to call open for a stream which already has an opened file. Failbit is set.");
+		fstream.clear();
+		print("Cleared the failbit for the stream.");
+	}
 }
 
+void closeClosedFile()
+{
+	// We can close a file stream more than once. No error.
+	std::fstream file(default_filename);
+	file.close();
+	file.close();
+}
 		
-	
-
-// In addition to the inherited operations, fstream defines few file specific ones.
-
 int main() {
 	// readFile("test.file");
-	openClose("test.file");
+	openClose(default_filename);
+
+	// Open a file for this stream to open another file for it later
+	std::fstream ifile("test_2.file");	
+	openAnotherFileSameStream(ifile, default_filename);
+
+	// Try to call open on an "opened" file stream, fail, clear the state
+	alreadyOpenedFile(ifile);
+
+	// Try to use the stream again
+	openAnotherFileSameStream(ifile, default_filename);
+
+	closeClosedFile();
 }
