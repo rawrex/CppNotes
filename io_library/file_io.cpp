@@ -25,7 +25,11 @@ void readFromFile()
 void openClose()
 {
 	std::ifstream ifstream;	
+
+	// If call to open succeeds,
+	// it sets the stream's state so that the good() yields true
 	ifstream.open(test_filename);			// Explicitly open a file for this file stream
+
 	if(test_filename)						// It is usually a good idea to verify that open succeeded
 		print("Opened successfully: '" + test_filename + "'");
 	else
