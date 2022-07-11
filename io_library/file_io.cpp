@@ -82,6 +82,10 @@ void closeClosedFile()
 	std::fstream file(test_filename);
 	file.close();
 	file.close();
+
+	// When an fstream object is destroyed, the file it is bound to is automatically closed
+	// A case of RAII idiom:
+	// https://en.cppreference.com/w/cpp/language/raii
 }
 		
 int main() {
