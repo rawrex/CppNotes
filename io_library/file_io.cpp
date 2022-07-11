@@ -21,7 +21,6 @@ void readFromFile()
 		print(current_line);
 }
 
-
 void openClose()
 {
 	std::ifstream ifstream;	
