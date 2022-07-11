@@ -63,7 +63,7 @@ void alreadyOpenedFile()
 
 	std::fstream fstream;				// Create a file stream, no file is associated.
 	fstream.open(test_filename);		// Explicitly associate a file with the file stream
-	fstream.open(test_filename); 	// Second call to open will set the failbit,
+	fstream.open(test_filename); 		// Error! Second call to open will set the failbit,
 										// Rendering the stream unusable for now
 	if(fstream.fail())
 	{
