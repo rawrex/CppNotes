@@ -23,6 +23,10 @@
 //	  To preserve contents of a file opened with "out", either we must also specify "app",
 //	  in which case we can write only at the end of the file;
 //	  Or we must alos specify "in", in which case the file is opened for both input and output.
+//	- The "ate" and "binary" modes can be specified on any file stream object type 
+//	  and in combination with any other file modes.
+
+
 
 
 int main() {
