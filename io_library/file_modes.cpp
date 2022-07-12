@@ -8,8 +8,10 @@
 //	ate			- seek to the end immediately after the open
 //	binary		- do IO operations in binary mode
 //	trunc		- truncate the file
-
-// We can supply the file mode whenever we open a file, directly or indirectly.
+//
+// Note, the underlying values of these modes are implementation defined
+// We can supply the file mode whenever we open a file,
+// directly (via call to open()) or indirectly (when constructing a file stream).
 
 // The file modes can be supplied with the following restrictions:
 //	- "out" may be set only for an ofstream or (a more general) fstream
@@ -46,8 +48,36 @@ std::ofstream ofile_4("another_test.file", std::ofstream::out | std::ofstream::a
 // Implicit out, preserve the contents of the file
 std::ofstream ofile_5("another_test.file", std::ofstream::app);	
 
+// Print the number in its binary representation
+void print(const unsigned long & number)
+{
+	auto n_bits = 32;
+	for (auto i = n_bits; i; --i)
+	{
+		if(!(i%8))
+			std::cout << ' ';
+		if(number & (1UL << i))
+			std::cout << '1';
+		else
+			std::cout << '0';
+	}
+	std::cout << std::endl;
+}
 
 int main() {
+	
+	// Let's see how these modes are defined in our system
+	// My system printed the following:
+	print(std::fstream::app);		// ... 00000000
+	print(std::fstream::ate);		// ... 00000001
+	print(std::fstream::binary);	// ... 00000010
+	print(std::fstream::in);		// ... 00000100
+	print(std::fstream::out);		// ... 00001000
+	print(std::fstream::trunc);		// ... 00010000
+
+
+
+	// Some examples of calls to open with different modes:
 
 	// Has implicit "trunc" and "out" when we call open()
 	std::ofstream test_file;
@@ -66,4 +96,7 @@ int main() {
 	// Implicit "out", explicit "in", avoid discarding the file contents
 	test_file.open("test.file", std::fstream::in);
 
+	// Implicit "in" and explicit "out"
+	std::ifstream ifile("test.file", std::fstream::out);
+	
 }
