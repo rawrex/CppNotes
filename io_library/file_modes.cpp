@@ -26,6 +26,10 @@
 //	- The "ate" and "binary" modes can be specified on any file stream object type 
 //	  and in combination with any other file modes.
 
+// Each file stream has its default file mode.
+// "ifstream" files are opened in "in" mode;
+// "ofstream" files are opened in "out" mode (note, the contents of the file will be discarded)
+// "fstream" files are opened in "in" and "out" mode;
 
 
 
