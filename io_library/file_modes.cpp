@@ -66,7 +66,4 @@ int main() {
 	// Implicit "out", explicit "in", avoid discarding the file contents
 	test_file.open("test.file", std::fstream::in);
 
-
-	
-
 }
