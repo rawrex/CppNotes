@@ -32,26 +32,41 @@
 // "fstream" files are opened in "in" and "out" mode;
 
 // Discards the contents of the test.file, implicit out and trunc modes
-std::ofstream ofile("test.file");
+std::ofstream ofile_1("another_test.file");
 
 // Explicit file mode, same as default, trunc is implicit
-std::ofstream ofile("test.file", std::ofstream::out);	
+std::ofstream ofile_2("another_test.file", std::ofstream::out);	
 
 // Explicit file mode, same as default, with explicit trunc< same as default
-std::ofstream ofile("test.file", std::ofstream::out | std::ofstream::trunc);	
+std::ofstream ofile_3("another_test.file", std::ofstream::out | std::ofstream::trunc);	
 
 // Explicit out, preserve the contents of the file
-std::ofstream ofile("test.file", std::ofstream::out | std::ofstream::app);	
+std::ofstream ofile_4("another_test.file", std::ofstream::out | std::ofstream::app);	
 
 // Implicit out, preserve the contents of the file
-std::ofstream ofile("test.file", std::ofstream::app);	
-
-// Recall that this file stream ctor implicitly calls to the open()
-// So, in fact we pass the file mode (implicit or explicit) to this call
+std::ofstream ofile_5("another_test.file", std::ofstream::app);	
 
 
 int main() {
 
-	std::ofstream ofile;
+	// Has implicit "trunc" and "out" when we call open()
+	std::ofstream test_file;
+
+	// Will avoid discarding the contents
+	test_file.open("test.file", std::ofstream::app);
+
+	// Recall that this file stream ctor implicitly calls to the open()
+	// So, we actually pass the file mode (implicit or explicit) to this call to open().
+	// In fact, the file mode is determined on each call to open()
+	// And we can use the same stream with different files and/or different modes.
+
+	// Close the file, so that we can reopen it later with different mode(s)
+	test_file.close();
+
+	// Implicit "out", explicit "in", avoid discarding the file contents
+	test_file.open("test.file", std::fstream::in);
+
+
+	
 
 }
