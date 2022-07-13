@@ -79,6 +79,7 @@ void alreadyOpenedFile()
 void closeClosedFile()
 {
 	// We can close a file stream more than once. No error.
+	// Call to close() flushes the associated buffers and closes the file:
 	std::fstream file(test_filename);
 	file.close();
 	file.close();
@@ -107,4 +108,5 @@ int main() {
 
 	// Double close
 	closeClosedFile();
+
 }
