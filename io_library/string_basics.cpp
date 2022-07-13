@@ -8,6 +8,9 @@
 // The std::ostringstream which writes to a string;
 // And the std::stringstream which does both.
 
+// These types inherit from the iostream header types (just like fstream).
+// These types also introduce some specific operations as well (just like fstream).
+
 
 
 int main() {
