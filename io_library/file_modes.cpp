@@ -9,7 +9,8 @@
 //	binary		- do IO operations in binary mode
 //	trunc		- truncate the file
 //
-// Note, the underlying values of these modes are implementation defined
+// (Note, the underlying values of these modes are implementation defined)
+//
 // We can supply the file mode whenever we open a file,
 // directly (via call to open()) or indirectly (when constructing a file stream).
 
@@ -74,6 +75,15 @@ void print(const unsigned long & number)
 	std::cout << std::endl;
 }
 
+// A utility function used to preserve the contents of the test files
+void restoreTestFiles()
+{
+	std::ofstream test_file("test.file");
+	test_file << "foo\nbar\nbaz\nqux quux\n";
+	std::ofstream another_test_file("another_test.file");
+	another_test_file << "foo\nbar\nbaz\n";
+}
+
 int main() {
 	
 	// Let's see how these modes are defined in our system
@@ -108,9 +118,9 @@ int main() {
 
 
 	// What's the difference between these two?
-	std::fstream file_a("Test.txt");
+	std::fstream file_a("test.file");
 	// Vs.
-	std::ofstream file_b("Test.txt");
+	std::ofstream file_b("test.file");
 
 	// ofstream::open defaults to openmode ios_base::out,
 	// fstream::open defaults to ios_base::in | ios_base::out
@@ -127,4 +137,7 @@ int main() {
 	std::ifstream ifile_test_2("test.file", std::fstream::trunc);
 	// Still can, why? Are the above restrictions are not enforced?
 
+	// Restore the previous contents of the two test files.
+	// Ignore this part.
+	restoreTestFiles();
 }
