@@ -1,6 +1,9 @@
 #include <iostream>
 #include <fstream>
 
+// The ofstream, ifstream and fstream classes are high level interfaces for the underling filebuf,
+// which one can get through the rdbuf() member function of the stream.
+
 void print(const std::string& msg) { std::cout << msg << std::endl; }
 const std::string test_filename("test.file");
 const std::string another_filename("another_test.file");
