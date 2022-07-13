@@ -78,15 +78,19 @@ void alreadyOpenedFile()
 
 void closeClosedFile()
 {
-	// We can close a file stream more than once. No error.
 	// Call to close() flushes the associated buffers and closes the file:
 	std::fstream file(test_filename);
+
+	// Once this member function is called,
+	// the stream object can be re-used to open another file,
+	// and the file is available again to be opened by other processes.
 	file.close();
+
+	// We can close a file stream more than once. No error.
 	file.close();
 
 	// When an fstream object is destroyed, the file it is bound to is automatically closed
-	// A case of RAII idiom:
-	// https://en.cppreference.com/w/cpp/language/raii
+	// (A case of RAII idiom)
 }
 		
 int main() {
