@@ -33,8 +33,38 @@
 // "ifstream" files are opened in "in" mode;
 // "ofstream" files are opened in "out" mode (note, the contents of the file will be discarded)
 // "fstream" files are opened in "in" and "out" mode;
+//
+// According to the standard when you open an std::ofstream with some mode mode,
+// it opens the underlining stream buffer as with mode | ios_base::out.
+// Analogously std::ifstream uses mode | ios_base::in.
+// std::fstream passes the mode parameter verbatim to the underlining stream buffer, filebuf,
+// which one can get through the rdbuf() member function of the stream.
+//
+// So, the below streams are opened in exactly the same modes:
 
-// File streams opened in binary mode perform IO operations independently of any format considerations.
+std::fstream	a("test.file", std::ios_base::in | std::ios_base::out);
+std::ifstream	b("test.file", std::ios_base::out);
+std::ofstream	c("test.file", std::ios_base::in);
+
+// Do exactly the same things with f.rdbuf(), g.rdbuf() and h.rdbuf(),
+// and all the three act as if you opened the file with the C call fopen("a.txt", "r+"),
+// which gives you r/w access, does not truncate the file, and fails if the file does not exist.
+//
+// So, why do we have three different classes?
+// Again, these classes are a higher-level interface over the lower-level stream buffer.
+// The idea is that std::ifstream has member functions for input, read(),
+// std::ofstream has member functions for output, write(),
+// while std::fstream has both.
+
+// E.g. we cannot do this:
+b.write("abc", 3);				// error: b does not have a write function
+
+// But this works, since, yet b is an std::ifstream, we've opened it with std::ios_base::out:
+g.rdbuf()->sputn("abc", 3);		// we still have write access
+
+
+
+// File streams opened in binary mode perform IO independently of any format considerations.
 // Non-binary files are known as text files,
 // and some translations may occur due to formatting of some special characters 
 // (like newline and carriage return characters).
