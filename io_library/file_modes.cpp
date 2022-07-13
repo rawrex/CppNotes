@@ -33,6 +33,11 @@
 // "ofstream" files are opened in "out" mode (note, the contents of the file will be discarded)
 // "fstream" files are opened in "in" and "out" mode;
 
+// File streams opened in binary mode perform IO operations independently of any format considerations.
+// Non-binary files are known as text files,
+// and some translations may occur due to formatting of some special characters 
+// (like newline and carriage return characters).
+
 // Discards the contents of the test.file, implicit out and trunc modes
 std::ofstream ofile_1("another_test.file");
 
