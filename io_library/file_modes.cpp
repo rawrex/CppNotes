@@ -107,6 +107,8 @@ int main() {
 	test_file.open("test.file", std::fstream::in);
 
 	// Implicit "in" and explicit "out"
+	// "out" may be set only for ofstream or for an fstream objects,
+	// So, how come?
 	std::ifstream ifile("test.file", std::fstream::out);
 
 }
