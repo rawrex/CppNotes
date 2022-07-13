@@ -108,9 +108,9 @@ int main() {
 
 
 	// What's the difference between these two?
-	std::fstream textfile("Test.txt");
+	std::fstream file_a("Test.txt");
 	// Vs.
-	std::ofstream textfile("Test.txt");
+	std::ofstream file_b("Test.txt");
 
 	// ofstream::open defaults to openmode ios_base::out,
 	// fstream::open defaults to ios_base::in | ios_base::out
@@ -121,6 +121,10 @@ int main() {
 	// Implicit "in" and explicit "out"
 	// "out" may be set only for ofstream or for an fstream objects,
 	// So, how come?
-	std::ifstream ifile("test.file", std::fstream::out);
+	std::ifstream ifile_test_1("test.file", std::fstream::out);
+	// Let's test another one of the restrictions
+	// There's no "out" in here, so we should not be able to supply trunc
+	std::ifstream ifile_test_2("test.file", std::fstream::trunc);
+	// Still can, why? Are the above restrictions are not enforced?
 
 }
