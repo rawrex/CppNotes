@@ -45,7 +45,12 @@ std::ofstream ofile_3("another_test.file", std::ofstream::out | std::ofstream::t
 // Explicit out, preserve the contents of the file
 std::ofstream ofile_4("another_test.file", std::ofstream::out | std::ofstream::app);	
 
-// Implicit out, preserve the contents of the file
+// For the osftream, the default ("out") value is only applied if the function is called 
+// without specifying any value for the mode parameter.
+// If the function is called with any value in that parameter 
+// the default mode is overridden, not combined.
+//
+// Hence, no implicit "out", explicit "app". Preserve the contents of the file
 std::ofstream ofile_5("another_test.file", std::ofstream::app);	
 
 // Print the number in its binary representation
@@ -98,5 +103,5 @@ int main() {
 
 	// Implicit "in" and explicit "out"
 	std::ifstream ifile("test.file", std::fstream::out);
-	
+
 }
