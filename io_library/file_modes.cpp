@@ -106,6 +106,18 @@ int main() {
 	// Implicit "out", explicit "in", avoid discarding the file contents
 	test_file.open("test.file", std::fstream::in);
 
+
+	// What's the difference between these two?
+	std::fstream textfile("Test.txt");
+	// Vs.
+	std::ofstream textfile("Test.txt");
+
+	// ofstream::open defaults to openmode ios_base::out,
+	// fstream::open defaults to ios_base::in | ios_base::out
+	// Also, with std::fstream, an atttempt to open nonexisting file will fail.
+	// Unlike, std::ofstream, which creates a file if one cannot be found.
+	// We can add the "trunc" to a call to open(), direct or not, on an std::fstream.
+
 	// Implicit "in" and explicit "out"
 	// "out" may be set only for ofstream or for an fstream objects,
 	// So, how come?
