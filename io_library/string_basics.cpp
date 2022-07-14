@@ -11,6 +11,9 @@
 // These types inherit from the iostream header types (just like fstream).
 // These types also introduce some specific operations as well (just like fstream).
 
+std::string str("Foo bar baz");
+std::stringstream sstrm(str);		// holds a copy of the str, this ctor is explicit
+
 
 
 int main() {
