@@ -5,6 +5,11 @@
 // The library defines a set of manipulators (an object or a function)
 // That we can use to modify the state, as an operand to an IO operator.
 
+// Manipulators can be divided into two categories:
+//	- Presentation of numeric values
+//	- The amount and placement of padding
+
+
 
 int main() {
 
