@@ -22,7 +22,10 @@
 
 
 
-void example()
+// We most often use input sstream when we want to get a line as a whole
+// And then operate on its contents.
+
+void example_istringstream()
 {
 	// Our custom data type
 	struct Widget
@@ -55,6 +58,10 @@ void example()
 		std::cout << std::endl;
 	}
 }
+
+
+// We most often use output sstream when we want to accumulate some data
+// And then print it as a whole
 				
 
 int main() {
@@ -67,6 +74,6 @@ int main() {
 	std::string string_c("Baz qux");
 	string_stream.str(string_c);					// Copies string into the stream, returns void
 
-	example();
+	example_istringstream();
 
 }
