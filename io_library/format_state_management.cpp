@@ -31,4 +31,12 @@ int main() {
 	// Now, set everything back to the defaults
 	std::cout << std::noshowbase << std::dec << std::nouppercase << std::endl;
 
+	// For floating point values we can control the following:
+	//	- How many digits of precision are printed.
+	//	  Default is six digits.
+	//	- A hexadecimal, fixed decimal, or scientific notation;
+	//	  Default is fixed decimal or scientific notation, depending on the value.
+	//	- Whether decimal point is printed for floating point values that are whole numbers;
+	// 	  Default is that point is omitted, if there's no decimal part.
+
 }
