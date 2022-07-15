@@ -23,4 +23,12 @@ int main() {
 	std::cout << std::hex << 21 << std::endl;	// Hexadecimal
 	std::cout << std::dec << 21 << std::endl;	// Explicit decimal
 
+	// We can set visual clues for what base we are currently printing in
+	// Set, print, then unset the manipulator
+	std::cout << std::showbase << std::hex << 21 << std::endl;
+	// By default, std::hex are printed in lowercase, we can change that
+	std::cout << std::uppercase << 21 << std::endl;
+	// Now, set everything back to the defaults
+	std::cout << std::noshowbase << std::dec << std::nouppercase << std::endl;
+
 }
