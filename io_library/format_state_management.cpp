@@ -9,6 +9,22 @@
 //	- Presentation of numeric values, set/unset pairs
 //	- The amount and placement of padding
 
+// Manipulators defined in the std::iostream namespace:
+boolalpha
+showbase
+showpoint
+showpos
+uppercase
+dec, hex, oct
+left, right
+internal
+fixed, hexfloat, scientific
+unitbuf
+skipws
+flush
+ends
+endl
+
 
 int main() {
 
