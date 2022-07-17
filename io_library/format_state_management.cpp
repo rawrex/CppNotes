@@ -10,20 +10,22 @@
 //	- The amount and placement of padding
 
 // Manipulators defined in the std::iostream namespace:
-boolalpha
-showbase
-showpoint
-showpos
-uppercase
-dec, hex, oct
-left, right
-internal
-fixed, hexfloat, scientific
-unitbuf
-skipws
-flush
-ends
-endl
+// boolalpha						- true and false as strings
+// showbas							- generate prefix
+// showpoint						- show decimal point for f.p. with whole values
+// showpos							- explicitly display sign of a number
+// uppercase						- print 0X and E for scientific
+// dec, hex, oct					- numeric bases
+// left, right						- where to add fill characters
+// internal							- and the fill chars between the sign and the value
+// fixed, hexfloat, scientific		- f.p. numbers display mode
+// unitbuf							- flush the buffer on every output operation
+// skipws							- skip whitespace with input operations
+// flush							- flush the ostream buffer
+// ends								- insert the null char, then flush
+// endl								- insert the null char, then flush
+//
+// The on/off ones of these has a counterpart that sets the state to the opposite mode.
 
 
 int main() {
