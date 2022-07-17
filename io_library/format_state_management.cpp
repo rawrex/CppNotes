@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 // In addition to condition state, each iostream object maintains a formatting state.
 // Which contorls how IO is formatted.
@@ -56,5 +57,8 @@ int main() {
 	//	  Default is fixed decimal or scientific notation, depending on the value.
 	//	- Whether decimal point is printed for floating point values that are whole numbers;
 	// 	  Default is that point is omitted, if there's no decimal part.
+	//
+	// The std::setprecision is defined in the "iomanip" header
+	std::cout << std::setprecision(10) << std::endl;
 
 }
