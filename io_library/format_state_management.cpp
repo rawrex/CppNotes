@@ -58,7 +58,14 @@ int main() {
 	//	- Whether decimal point is printed for floating point values that are whole numbers;
 	// 	  Default is that point is omitted, if there's no decimal part.
 	//
-	// The std::setprecision is defined in the "iomanip" header
-	std::cout << std::setprecision(10) << std::endl;
+	// We can set the precision using either the overloaded member function
+	// Or using a special library manipulator object,
+	// The std::setprecision, defined in the "iomanip" header,
+	// as all other manipulators that take arguments:
+	std::cout << std::cout.precision() << std::endl;					// Prints 6
+	std::cout << std::cout.precision(8) << std::endl;					// Prints 6,
+																		// It returns the previous
+	std::cout << std::setprecision(10); 
+	std::cout << std::cout.precision() << std::endl;					// Prints 10
 
 }
