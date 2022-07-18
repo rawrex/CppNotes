@@ -63,10 +63,41 @@ void example_unget()
 	std::cout << ch_before_unget << std::endl;	
 	std::cout << ch_after_unget << std::endl;
 }
+void example_putback()
+{
+	char ch_get_first_time = '\0';
+	char ch_get_second_time = '\0';
+	char ch_other = 'y';
+
+	// Get a character from the stream
+	std::cin.get(ch_get_first_time);
+	
+	// Put back the same character back onto the stream
+	std::cin.putback(ch_get_first_time);
+
+	// We can get the character once again,
+	// No user interaction needed, since the character is already on the stream
+	std::cin.get(ch_get_second_time);
+
+	// These prints are the same
+	std::cout << ch_get_first_time << std::endl;
+	std::cout << ch_get_second_time << std::endl;
+	std::cout << ch_other << std::endl;
+
+	// We've got the value we've put back, the same one, we got on the first get
+	// The stream is changed for the second time and does not contain any characters.
+	// Now, let's try to putback some other value, not the one we've took
+
+	// Does not fail for some reason. 
+	// Will do a research on the case
+	std::cin.putback(ch_other);
+	
+}
 
 
 
 int main() {
 	// example_peek();
 	// example_unget();
+	example_putback();
 }
