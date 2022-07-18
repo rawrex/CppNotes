@@ -9,6 +9,7 @@
 // input_stream.get()			- returns the next byte from istream as an int
 // input_stream.putback(ch)		- put the character ch back on istream; returns input_strea
 // input_stream.unget()			- move input_stream back one byte; returns input_stream
+// input_stream.peek()			- returns the next byte as an int but does not removes it
 
 void example_get_put()
 {
