@@ -29,6 +29,21 @@ void example_get_put()
 //
 // We ate guaranteed to be able to put back at worst one value before the next read;
 // Note, we are not guaranteed to be able to call putback() ot unget() successively without a read.
+void example_peek()
+{
+	char ch_peek = '\0';
+	char ch_get = '\0';
+
+	// Copy the next char on the stream, leaving the stream intact
+	ch_peek = std::cin.peek();
+	
+	// Get the same character from the stream, stream is changed now
+	std::cin.get(ch_get);
+
+	// These prints are the same
+	std::cout << ch_peek << std::endl;
+	std::cout << ch_get << std::endl;
+}
 void example_unget()
 {
 	char ch_before_unget = '\0';
@@ -52,5 +67,6 @@ void example_unget()
 
 
 int main() {
-	example_unget();
+	// example_peek();
+	// example_unget();
 }
