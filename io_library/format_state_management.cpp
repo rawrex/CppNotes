@@ -68,4 +68,14 @@ int main() {
 	std::cout << std::setprecision(10); 
 	std::cout << std::cout.precision() << std::endl;					// Prints 10
 
+	
+	// The library provides several manipulators we can use to pad the output:
+	//	- setw(n), to specify the minimum space for the next numeric or string value
+	//	- setfill(ch), to specify an alternative fill character
+
+	// Other manipulators from the iomanip header:
+	//	- setbase(b), output integers in base b
+	//	- setprecision(n), which we've already covered above
+
+
 }
