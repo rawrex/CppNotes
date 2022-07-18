@@ -18,7 +18,6 @@ void example_get_put()
 		std::cout.put(ch);
 }
 
-
 // Sometimes we need to read a character from the stream just to put it back onto the stream:
 // peek(), 		returns the copy of the next character on the stream,
 //				does not change the stream.
@@ -27,6 +26,15 @@ void example_get_put()
 // putback(),	returns the last value read from the stream,
 // 				but takes the arg that must be the same as the one that was last read,
 //				in other words, put back what you just took, knowing what you just have taken.
+//
+// We ate guaranteed to be able to put back at worst one value before the next read;
+// Note, we are not guaranteed to be able to call putback() ot unget() successively without a read.
+void example_putting_back()
+{
+	
+}
+
+
 
 int main() {
 
