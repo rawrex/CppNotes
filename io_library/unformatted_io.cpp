@@ -31,13 +31,25 @@ void example_get_put()
 // Note, we are not guaranteed to be able to call putback() ot unget() successively without a read.
 void example_putting_back()
 {
+	char ch_before_unget = '\0';
+	char ch_after_unget = '\0';
+
+	// Request an input from the stdin
+	std::cin.get(ch_before_unget);
+
+	// The value we've put into the ch_before_unget is now on the stream again
+	std::cin.unget();
 	
+	// No new input will be requested from a user,
+	// there's already a character present at the stdin
+	std::cin.get(ch_after_unget);
+
+	std::cout << ch_before_unget << std::endl;
+	std::cout << ch_after_unget << std::endl;
 }
 
 
 
 int main() {
-
-	// 
-
+	example_putting_back();
 }
