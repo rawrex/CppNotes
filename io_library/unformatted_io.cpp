@@ -29,7 +29,7 @@ void example_get_put()
 //
 // We ate guaranteed to be able to put back at worst one value before the next read;
 // Note, we are not guaranteed to be able to call putback() ot unget() successively without a read.
-void example_putting_back()
+void example_unget()
 {
 	char ch_before_unget = '\0';
 	char ch_after_unget = '\0';
@@ -44,12 +44,13 @@ void example_putting_back()
 	// there's already a character present at the stdin
 	std::cin.get(ch_after_unget);
 
-	std::cout << ch_before_unget << std::endl;
+	// These prints print the same value
+	std::cout << ch_before_unget << std::endl;	
 	std::cout << ch_after_unget << std::endl;
 }
 
 
 
 int main() {
-	example_putting_back();
+	example_unget();
 }
