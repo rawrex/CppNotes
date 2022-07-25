@@ -1,9 +1,16 @@
 #include <iostream>
+#include <string>
+
+void print(const std::string& msg)
+{
+	std::cout << msg << std::endl;
+}
+
 
 // We can use these for speed, but they are error-prone,
 // In particular because they require us to allocate and manage the character arrays as buffers.
 //
-// input_stream.get(sink, size, delimiter);		reads characters up to the "size" from "input_stream"
+// input_stream.get(sink, size, delimiter);		reads bytes up to the "size" from "input_stream"
 //												stores them in the char.array beginning at the address
 //												pointed to by the "sink";
 //												reads until "size", "delimiter", or EOF is met;
@@ -29,17 +36,32 @@
 
 void get_example()
 {
-	constexpr size_t size = 3;
+	constexpr size_t size = 5;
 	char buffer[size];
 	const char delim = 'x';
 
-	// Get characters from the stdin, until we get two or an 'x'
+	// Get characters from the stdin, until we get four or an 'x'
+	// Note, newline character counts too
 	std::cin.get(buffer, size, delim);
 }
 	
+void getline_example()
+{
+	constexpr size_t size = 5;
+	char buffer[size];
+	const char delim = 'x';
+
+	// Get characters from the stdin, until we get four or an 'x'
+	// Note, newline character counts too
+	std::cin.getline(buffer, size, delim);
+}
 
 int main() {
 
+	print("get:");
 	get_example();
+
+	print("getline:");
+	getline_example();
 
 }
