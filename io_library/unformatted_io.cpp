@@ -98,19 +98,20 @@ void example_int_returns()
 {
 	// The peek and the get called with no arguments return a character from the input stream as an int
 	// This way these operations can return an end-of-file marker.
+	//
 	// A given char set is allowed to use every value in the char range to represent an actual character.
 	// Thus, there is no extra value in that range to use to represent end-of-file
 	// The library uses a negative value to represent end-of-file,
 	// which is thus guaranteed to be distinct from any legitimate character value.
+	//
 	// Rather than requiring us to know the actual value returned,
 	// the cstdio header defines a const named EOF 
 	// that we can use to test if the value returned from get is end-of-file.
+	//
 	// It is essential that we use an int to hold the return from these functions:
 
-	// use an int, not a char to hold the return from get()
-	int ch; 
-	// loop to read and write all the data in the input
-	while ((ch = std::cin.get()) != EOF)
+	int ch; 								// Use an int, not a char to hold the return from get()
+	while ((ch = std::cin.get()) != EOF)	// Loop to read and write all the data in the input
 		std::cout.put(ch);
 
 }
