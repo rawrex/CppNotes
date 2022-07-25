@@ -106,8 +106,9 @@ void example_int_returns()
 	//
 	// Rather than requiring us to know the actual value returned,
 	// the cstdio header defines a const named EOF 
-	// that we can use to test if the value returned from get is end-of-file.
-	//
+	// that we can use to test if the value returned from get is end-of-file:
+	std::cout << "EOF value: " << EOF << std::endl;
+
 	// It is essential that we use an int to hold the return from these functions:
 
 	int ch; 								// Use an int, not a char to hold the return from get()
