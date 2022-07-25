@@ -27,12 +27,19 @@
 //												returns "output_stream"
 
 
-
-int main() {
-
+void get_example()
+{
 	constexpr size_t size = 3;
 	char buffer[size];
 	const char delim = 'x';
+
+	// Get characters from the stdin, until we get two or an 'x'
 	std::cin.get(buffer, size, delim);
+}
+	
+
+int main() {
+
+	get_example();
 
 }
