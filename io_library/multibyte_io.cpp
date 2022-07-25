@@ -41,7 +41,7 @@ void get_example()
 	const char delim = 'x';
 
 	// Get characters from the stdin, until we get four or an 'x'
-	// Note, newline character counts too
+	// Note, whitespace counts too
 	std::cin.get(buffer, size, delim);
 }
 	
@@ -51,8 +51,9 @@ void getline_example()
 	char buffer[size];
 	const char delim = 'x';
 
-	// Get characters from the stdin, until we get four or an 'x'
-	// Note, newline character counts too
+	// Get characters from the stdin, until we get four or an 'x',
+	// Then read the fifth character and discard it from the stream
+	// Note, whitespace counts too
 	std::cin.getline(buffer, size, delim);
 }
 
