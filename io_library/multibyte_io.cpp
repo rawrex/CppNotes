@@ -65,17 +65,36 @@ void getline_example()
 
 void read_example()
 {
-	// while get() would be more appropriate on a text stream
+	// While get() would be more appropriate on a text stream
 	// read() is more appropriate action on a binary datasource,
 	// reading a specific number of bytes.
 	
+	constexpr size_t size = 5;
+	char buffer[size];
+
+	std::cin.read(buffer, size);
+
+	print("write:");
+	std::cout.write(buffer, size);
+}
+	
+void gcount_example()
+{
+	get_example();
+	std::cout << "gcount: " << std::cin.gcount() << std::endl;
+}
 
 int main() {
 
-	print("get:");
-	get_example();
+//	print("get:");
+//	get_example();
 
-	print("getline:");
-	getline_example();
+//	print("getline:");
+//	getline_example();
 
+//	print("read:");
+//	read_example();
+
+	print("get + gcount");
+	gcount_example();
 }
