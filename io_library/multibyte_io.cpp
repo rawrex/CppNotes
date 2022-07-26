@@ -43,6 +43,9 @@ void get_example()
 	// Get characters from the stdin, until we get four or an 'x'
 	// Note, whitespace counts too
 	std::cin.get(buffer, size, delim);
+
+	print("write:");
+	std::cout.write(buffer, size);
 }
 	
 void getline_example()
@@ -55,6 +58,9 @@ void getline_example()
 	// Then read the fifth character and discard it from the stream
 	// Note, whitespace counts too
 	std::cin.getline(buffer, size, delim);
+
+	print("write:");
+	std::cout.write(buffer, size);
 }
 
 int main() {
