@@ -7,8 +7,8 @@ void print(const std::string& msg)
 }
 
 
-// We can use these for speed, but they are error-prone,
-// In particular because they require us to allocate and manage the character arrays as buffers.
+// We can use these for speed, but they are error-prone.
+// They require us to allocate and manage the character arrays as buffers.
 //
 // input_stream.get(sink, size, delimiter);		reads bytes up to the "size" from "input_stream"
 //												stores them in the char.array beginning at the address
