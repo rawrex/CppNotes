@@ -10,8 +10,8 @@ void print(const std::string& msg)
 // We can use these for speed, but they are error-prone.
 // They require us to allocate and manage the character arrays as buffers.
 //
-// input_stream.get(sink, size, delimiter);		reads bytes up to the "size" from "input_stream"
-//												stores them in the char.array beginning at the address
+// input_stream.get(sink, size, delimiter);		reads characters up to the "size" from "input_stream"
+//												stores them in the character array beginning at the address
 //												pointed to by the "sink";
 //												reads until "size", "delimiter", or EOF is met;
 //												if "delimiter" is present, it is left on the stream 
@@ -62,6 +62,13 @@ void getline_example()
 	print("write:");
 	std::cout.write(buffer, size);
 }
+
+void read_example()
+{
+	// while get() would be more appropriate on a text stream
+	// read() is more appropriate action on a binary datasource,
+	// reading a specific number of bytes.
+	
 
 int main() {
 
