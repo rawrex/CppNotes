@@ -84,6 +84,13 @@ void gcount_example()
 	std::cout << "gcount: " << std::cin.gcount() << std::endl;
 }
 
+void ignore_example()
+{
+	constexpr size_t size = 5;
+	// char buffer[size];
+	std::cin.ignore(size, 'X');
+}
+
 int main() {
 
 //	print("get:");
@@ -95,6 +102,6 @@ int main() {
 //	print("read:");
 //	read_example();
 
-	print("get + gcount");
-	gcount_example();
+	// print("get + gcount");
+	// gcount_example();
 }
