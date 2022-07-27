@@ -26,6 +26,22 @@ void print(const std::string& msg)
 //												or the maximum representable value of std::streamsize 
 //												if the number is not representable.
 //
+// The following member functions of basic_istream change the value of subsequent gcount() calls:
+//		- move constructor
+//		- swap()
+//		- get()
+//		- getline()
+//		- ignore()
+//		- read()
+//		- readsome()
+//		- operator>>(basic_streambuf*) 
+//
+// The following functions set gcount() to zero:
+//		- constructor
+//		- putback()
+//		- unget()
+//		- peek()
+//
 // input_stream.ignore(size, delimiter);		reads and ignores at most "size" characters up to,
 //												up to (not including) "delimiter";
 //												unline other operations, has default arguments:
