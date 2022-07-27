@@ -22,7 +22,9 @@ void print(const std::string& msg)
 //												returns "input_stream"
 //
 // input_stream.gcount();						returns the number of bytes read from the "input_stream"
-//												by the last call to an unformatted read operation
+//												by the last call to an unformatted read operation,
+//												or the maximum representable value of std::streamsize 
+//												if the number is not representable.
 //
 // input_stream.ignore(size, delimiter);		reads and ignores at most "size" characters up to,
 //												up to (not including) "delimiter";
@@ -32,6 +34,8 @@ void print(const std::string& msg)
 // output_stream.write(source, size);			writes "size" bytes from the character array "source"
 //												into "output_stream"; 
 //												returns "output_stream"
+//
+// Note, it is not uncommon to forget to remove the delimitre from the stream
 
 
 void get_example()
