@@ -21,7 +21,8 @@ void print(const std::string& msg)
 // input_stream.read(sink, size);				reads up to "size" bytes into the character array "sink";
 //												returns "input_stream"
 
-// input_stream.gcount();						returns the number of bytes read from the "input_stream"
+// input_stream.gcount();						returns std::streamsize type,
+//												 the number of bytes read from the "input_stream"
 //												by the last call to an unformatted read operation,
 //												or the maximum representable value of std::streamsize 
 //												if the number is not representable.
