@@ -50,16 +50,17 @@ void print(const std::string& msg)
 //												unline other operations, has default arguments:
 //												"size" = 1, "delimiter" = EOF
 
-// output_stream.write(source, size);			writes "size" bytes from the character array "source"
-//												into "output_stream"; 
-//												returns "output_stream"
-
 // input_stream.readsome(sink, size);			Extracts up to "size" immediately available characters from the input_stream.
 //												The extracted characters are stored into the character array pointed to by "sink".
 //												The behavior is highly implementation specific.
 //												E.g.
 //												We can observe the difference between read() and readsome() 
 //												on a flash filing system.								
+
+// output_stream.write(source, size);			writes "size" bytes from the character array "source"
+//												into "output_stream"; 
+//												returns "output_stream"
+
 
 // Note, it is not uncommon to forget to remove the delimitre from the stream
 
@@ -117,7 +118,6 @@ void gcount_example()
 void ignore_example()
 {
 	constexpr size_t size = 5;
-	// char buffer[size];
 	std::cin.ignore(size, 'X');
 }
 
