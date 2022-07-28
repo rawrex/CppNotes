@@ -3,7 +3,7 @@
 
 void print(const std::string& msg)
 {
-	std::cout << msg << std::endl;
+std::cout << msg << std::endl;
 }
 
 
@@ -61,45 +61,44 @@ void print(const std::string& msg)
 //												into "output_stream"; 
 //												returns "output_stream"
 
-
 // Note, it is not uncommon to forget to remove the delimitre from the stream
 
 
 void get_example()
 {
-	constexpr size_t size = 5;
-	char buffer[size];
-	const char delim = 'x';
+constexpr size_t size = 5;
+char buffer[size];
+const char delim = 'x';
 
-	// Get characters from the stdin, until we get four or an 'x'
-	// Note, whitespace counts too
-	std::cin.get(buffer, size, delim);
+// Get characters from the stdin, until we get four or an 'x'
+// Note, whitespace counts too
+std::cin.get(buffer, size, delim);
 
-	print("write:");
-	std::cout.write(buffer, size);
+print("write:");
+std::cout.write(buffer, size);
 }
-	
+
 void getline_example()
 {
-	constexpr size_t size = 5;
-	char buffer[size];
-	const char delim = 'x';
+constexpr size_t size = 5;
+char buffer[size];
+const char delim = 'x';
 
-	// Get characters from the stdin, until we get four or an 'x',
-	// Then read the fifth character and discard it from the stream
-	// Note, whitespace counts too
-	std::cin.getline(buffer, size, delim);
+// Get characters from the stdin, until we get four or an 'x',
+// Then read the fifth character and discard it from the stream
+// Note, whitespace counts too
+std::cin.getline(buffer, size, delim);
 
-	print("write:");
-	std::cout.write(buffer, size);
+print("write:");
+std::cout.write(buffer, size);
 }
 
 void read_example()
 {
-	// While get() would be more appropriate on a text stream
-	// read() is more appropriate action on a binary datasource,
-	// reading a specific number of bytes.
-	
+// While get() would be more appropriate on a text stream
+// read() is more appropriate action on a binary datasource,
+// reading a specific number of bytes.
+
 	constexpr size_t size = 5;
 	char buffer[size];
 
@@ -115,10 +114,31 @@ void gcount_example()
 	std::cout << "gcount: " << std::cin.gcount() << std::endl;
 }
 
-void ignore_example()
+void ignore_basic_example()
 {
-	constexpr size_t size = 5;
+	std::string str;
+	constexpr size_t size = 3;
 	std::cin.ignore(size, 'X');
+	std::cin >> str;
+	std::cout << str << std::endl;
+}
+void ignore_useful_example()
+{
+	// One the most common uses for the ignore()
+	// is to discard the newline character before a call to getline()
+	// that is left after a formatted input.
+	char ch = ' ';
+	std::string line;
+
+	std::cin >> ch;
+	
+	// Now, since we've pressed the Enter, there's a newline left in the buffer
+	// And if we were to call getline() right now, it will see the '\n' first of all
+	// The '\n' will be discarded, but the input operation will stop immediately.
+	// std::getline(std::cin, line);
+	// std::cin.ignore();
+	std::getline(std::cin, line);
+	std::cout << ch << ' ' << line << std::endl;
 }
 
 int main() {
@@ -132,6 +152,12 @@ int main() {
 //	print("read:");
 //	read_example();
 
-	// print("get + gcount");
-	// gcount_example();
+//	print("get + gcount");
+//	gcount_example();
+
+//	print("ignore example");
+//	ignore_basic_example();
+
+	print("ignore useful example");
+	ignore_useful_example();
 }
