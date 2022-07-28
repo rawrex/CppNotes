@@ -22,7 +22,7 @@ void print(const std::string& msg)
 //												returns "input_stream"
 
 // input_stream.gcount();						returns std::streamsize type,
-//												 the number of bytes read from the "input_stream"
+//												with the number of bytes read from the "input_stream"
 //												by the last call to an unformatted read operation,
 //												or the maximum representable value of std::streamsize 
 //												if the number is not representable.
