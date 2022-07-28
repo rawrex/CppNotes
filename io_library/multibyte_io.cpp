@@ -54,6 +54,13 @@ void print(const std::string& msg)
 //												into "output_stream"; 
 //												returns "output_stream"
 
+// input_stream.readsome(sink, size);			Extracts up to "size" immediately available characters from the input_stream.
+//												The extracted characters are stored into the character array pointed to by "sink".
+//												The behavior is highly implementation specific.
+//												E.g.
+//												We can observe the difference between read() and readsome() 
+//												on a flash filing system.								
+
 // Note, it is not uncommon to forget to remove the delimitre from the stream
 
 
