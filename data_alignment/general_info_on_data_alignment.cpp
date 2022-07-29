@@ -5,6 +5,7 @@ void print(const T& msg)
 {
 	std::cout << msg << std::endl;
 }
+class padding {};
 
 // Data structure alignment is the way data is arranged and accessed in computer memory.
 // It consists of three separate but related issues:
@@ -46,17 +47,28 @@ void padding_example()
 	print(sizeof(short));	// On my machine prints 2
 	print(sizeof(int));		// On my machine prints 4
 	
-	struct Data
+	struct Data1
 	{
-		char ch;
-		short sh;
-		int i;
+		char ch;			// size 1
+		padding one;		// pad 1 byte to add up to the size of the next member
+		short sh;			// size 2
+		int i;				// size 4, offset 4, no padding needed
 	};
 
 	// If not for alignment, int member should be placed at the offset 3
 	// And then span its four bytes, making the whole data structure to span seven bytes.
 
-	print(sizeof(Data));	// Prints 8 on my machine
+	print(sizeof(Data1));	// Prints 8 on my machine
+
+	// Let's look at a different declarations order
+	struct Data2
+	{
+		short sh;			// 2
+		int i;				// 4
+		char ch;			// 1
+	};
+
+	print(sizeof(Data2));	// Prints 12 on my machine
 }
 
 int main()
