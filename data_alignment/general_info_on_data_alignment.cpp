@@ -115,6 +115,7 @@ void declaration_order_example()
 		int i;				// size 4, offset 4
 		char ch;			// size 1
 		padding three;		// need to add up to the whole structure
+							// making its sizeof a multiple of 4 (int's size)
 	};
 	print(sizeof(Data2));	// Prints 12 on my machine
 
