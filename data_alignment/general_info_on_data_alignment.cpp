@@ -28,6 +28,19 @@ class padding {};
 // As to the Packing, we can pack the data structure, omitting the padding,
 // Which may lead to slower acces, but uses less memory.
 // E.g. if we were to pack the above example, we would've used 3/4 of the memory then.
+// While one use for such "packed" structures is to conserve memory.
+//
+// It may also be used to format a data structure for transmission using a standard protocol.
+// However, in this usage, care must also be taken to ensure 
+// that the values of the struct members are stored with the endianness required by the protocol 
+// (often network byte order), which may be different from the endianness used natively by the host machine.
+
+// Computing padding
+// The following formulas provide the number of padding bytes required to align 
+// the start of a data structure (where mod is the modulo operator):
+//
+// padding 	= (align - (offset % align)) % align
+// aligned 	= offset + padding
 
 struct MyData
 {
