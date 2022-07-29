@@ -15,3 +15,7 @@
 // E.g. on a 32-bit machine,
 // A data structure containing a 16-bit value followed by a 32-bit value could have 16 bits of padding 
 // between the 16-bit value and the 32-bit value to align the 32-bit part on a 32-bit boundary.
+//
+// As to the Packing, we can pack the data structure, omitting the padding,
+// Which may lead to slower acces, but uses less memory.
+// E.g. if we were to pack the above example, we would've used 3/4 of the memory then.
