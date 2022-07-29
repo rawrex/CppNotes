@@ -104,6 +104,17 @@ void declaration_order_example()
 
 	// Note, if members are sorted by descending alignment requirements 
 	// a minimal amount of padding is required.
+	//
+	// Also note, the minimal amount of padding required is always less 
+	// than the largest alignment in the structure.
+	//
+	// C and C++ do not allow the compiler to reorder structure members to save space,
+	// other languages might.
+	// 
+	// It is also possible to tell most C and C++ compilers to "pack" the members of a structure 
+	// to a certain level of alignment,
+	// E.g. "pack(2)" means align data members larger than a byte to a two-byte boundary
+	// so that any padding members are at most one byte long.
 }
 
 int main()
