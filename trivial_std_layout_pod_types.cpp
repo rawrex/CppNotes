@@ -117,7 +117,8 @@ struct Derived : public Base
 //
 // When a class or struct is both trivial and standard-layout, it is a POD (Plain Old Data) type.
 // So, POD = StandardLayout + Trivial.
-// The memory layout of POD types is therefore contiguous and each member has a higher address than the member that was declared before it,
+// The memory layout of POD types is therefore contiguous 
+// and each member has a higher address than the member that was declared before it,
 // so that byte for byte copies and binary I/O can be performed on these types.
 // Scalar types such as int are also POD types.
 // POD types that are classes can have only POD types as non-static data members.
