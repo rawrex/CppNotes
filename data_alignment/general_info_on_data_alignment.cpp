@@ -47,6 +47,9 @@ void padding_example()
 	print(sizeof(short));	// On my machine prints 2
 	print(sizeof(int));		// On my machine prints 4
 	
+	// To maintain proper alignment the translator normally inserts additional unnamed data members 
+	// so that each member is properly aligned.
+	// In addition, the data structure as a whole may be padded with a final unnamed member.
 	struct Data1
 	{
 		char ch;			// size 1
@@ -59,19 +62,52 @@ void padding_example()
 	// And then span its four bytes, making the whole data structure to span seven bytes.
 
 	print(sizeof(Data1));	// Prints 8 on my machine
+}
 
-	// Let's look at a different declarations order
+void declaration_order_example()
+{
+	// Same structure as in the above example...
+	struct Data1
+	{
+		char ch;			// size 1
+		padding one;		// pad 1 byte to add up to the size of the next member
+		short sh;			// size 2
+		int i;				// size 4, offset 4, no padding needed
+	};
+	print(sizeof(Data1));	// Prints 8 on my machine
+
+	// But now let's look at a different declarations order
 	struct Data2
 	{
-		short sh;			// 2
-		int i;				// 4
-		char ch;			// 1
+		short sh;			// size 2
+		padding two;		// add up to 4
+		int i;				// size 4, offset 4
+		char ch;			// size 1
+		padding three;		// need to add up to the whole structure
 	};
-
 	print(sizeof(Data2));	// Prints 12 on my machine
+
+	// Padding is only inserted when a structure member is followed by a member 
+	// with a larger alignment requirement or at the end of the structure.
+	// By changing the ordering of members in a structure,
+	// it is possible to change the amount of padding required to maintain alignment.
+
+	struct Data3
+	{
+		int i;				// size 4
+		short sh1;			// size 2
+		short sh2;			// size 2
+		char ch;			// size 1
+		padding three;
+	};
+	print(sizeof(Data3));	// Prints 12 on my machine
+
+	// Note, if members are sorted by descending alignment requirements 
+	// a minimal amount of padding is required.
 }
 
 int main()
 {
-	padding_example();
+	// padding_example();
+	declaration_order_example();
 }
