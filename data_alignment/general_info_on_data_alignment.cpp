@@ -1,3 +1,11 @@
+#include <iostream>
+
+template <typename T>
+void print(const T& msg)
+{
+	std::cout << msg << std::endl;
+}
+
 // Data structure alignment is the way data is arranged and accessed in computer memory.
 // It consists of three separate but related issues:
 //	- Data alignment,
@@ -19,3 +27,39 @@
 // As to the Packing, we can pack the data structure, omitting the padding,
 // Which may lead to slower acces, but uses less memory.
 // E.g. if we were to pack the above example, we would've used 3/4 of the memory then.
+
+struct MyData
+{
+    short Data1;
+    short Data2;
+    short Data3;
+};
+
+// If the type "short" is stored in two bytes of memory 
+// then each member of the data structure depicted above would be 2-byte aligned.
+// Data1 would be at offset 0, Data2 at offset 2, and Data3 at offset 4.
+// The size of this structure would be 6 bytes.
+
+void padding_example()
+{
+	print(sizeof(char));	// On my machine prints 1
+	print(sizeof(short));	// On my machine prints 2
+	print(sizeof(int));		// On my machine prints 4
+	
+	struct Data
+	{
+		char ch;
+		short sh;
+		int i;
+	};
+
+	// If not for alignment, int member should be placed at the offset 3
+	// And then span its four bytes, making the whole data structure to span seven bytes.
+
+	print(sizeof(Data));	// Prints 8 on my machine
+}
+
+int main()
+{
+	padding_example();
+}
