@@ -11,23 +11,27 @@ void print(const T& msg)
 // It’s common knowledge that on all modern x86, x64, Itanium, SPARC, ARM and PowerPC processors,
 // plain 32-bit integer assignment is atomic as long as the target variable is naturally aligned.
 
-void plain_int_example()
+void run_threads(int& integer)
 {
-	int plain_int = 0;
-
-	JThread thread1([&plain_int]()
+	JThread thread1([&integer]()
 	{
 		while(true)
-			plain_int = 1;
+			integer = 1;
 	});
-	JThread thread2([&plain_int]()
+	JThread thread2([&integer]()
 	{
 		while(true)
-			plain_int = 0;
+			integer = 0;
 	});
 	
 	while(true)
-		print(plain_int);
+		print(integer);
+}
+
+void plain_int_example()
+{
+	int plain_int = 0;	
+	run_threads(plain_int);
 }
 
 struct Natural
@@ -39,10 +43,17 @@ struct NotNatural
 	char ch;
 	int plain_int = 0;
 };
+void non_natural_alignment_example()
+{
+	NotNatural not_natural_structure;
+	run_threads(not_natural_structure.plain_int);
+}
+
 
 int main() {
 
 	print(sizeof(Natural));
 	print(sizeof(NotNatural));
 
+	//non_natural_alignment_example();
 }
