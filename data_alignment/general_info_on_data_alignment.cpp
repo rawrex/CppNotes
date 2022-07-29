@@ -49,6 +49,24 @@ struct MyData
     short Data3;
 };
 
+
+// Problems of data unalignment
+//
+// If the highest and lowest bytes in a datum are not within the same memory word
+// the computer must split the datum access into multiple memory accesses.
+// This requires a lot of complex circuitry to generate the memory accesses and coordinate them.
+//
+// Some processor designs deliberately avoid introducing such complexity,
+// and instead yield alternative behavior in the event of a misaligned memory access.
+//
+// When a single memory word is accessed the operation is atomic,
+// i.e. the whole memory word is read or written at once and other devices must wait
+// until the read or write operation completes before they can access it.
+// This may not be true for unaligned accesses to multiple memory words.
+
+
+
+
 // If the type "short" is stored in two bytes of memory 
 // then each member of the data structure depicted above would be 2-byte aligned.
 // Data1 would be at offset 0, Data2 at offset 2, and Data3 at offset 4.
