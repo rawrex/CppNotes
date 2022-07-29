@@ -93,6 +93,7 @@ struct StdLayout
 	int j;
 
 	// User-defined constructor OK
+	// Note, no implicitly defined default ctor
 	StdLayout(int a, int b) : i(a), j(b) {} 
 };
 
