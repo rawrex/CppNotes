@@ -55,12 +55,18 @@ private:
 
 int main() 
 {
-	Trivial f1 {21, 3};
-	Trivial f2;
+	Trivial trivial1 {21, 3};
+	Trivial trivial2;
+	
 	unsigned char arr[10];
 
-	std::memcpy(&arr, &f1, sizeof(Trivial));
-	std::memcpy(&f2, arr, sizeof(Trivial));
+	// Copy the sizeof(Trivial) bytes
+	// of the memory occoupied by the trivial1 into the arr
+	std::memcpy(&arr, &trivial1, sizeof(Trivial));
+
+	// Copy the sizeof(Trivial) bytes from arr
+	// Into the memory location of trivial2
+	std::memcpy(&trivial2, arr, sizeof(Trivial));
 
 	std::cout << f2.a << std::endl;
 }
