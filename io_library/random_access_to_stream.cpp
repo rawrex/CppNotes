@@ -12,6 +12,12 @@
 // If we were to call the random access funcitons on them, the calls will fail at run-time,
 // Levaing the stream in invalid state.
 
+// Note, in general, we should use the higher-level abstracitons porvided by the library.
+// Use of the low-level routines is highly error-prone.
+// E.g. it is a common error to use char type for the return from the peek() or get(), rather than int.
+// Thus, unabling to check for the EOF properly.
+
+
 
 int main() {
 
