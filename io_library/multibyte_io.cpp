@@ -139,6 +139,11 @@ void ignore_useful_example()
 	std::cin.ignore();
 	std::getline(std::cin, line);
 	std::cout << ch << ' ' << line << std::endl;
+
+	// Another way to discard the whitespace is to use the std::ws manipulator 
+	// whici is designed to extract and discard leading whitespace from the beginning of an input stream:
+	// std::cin >> std::ws returns the std::cin itself:
+	std::getline(std::cin >> std::ws, name);
 }
 
 int main() {
