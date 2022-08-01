@@ -28,7 +28,17 @@
 // There are two pairs of seek and tell functions, for input and output.
 // Withe the "g" suffix (for "get"), and "p" suffix (for "put").
 //
-
+//	- tellg()				return the current position of the marker in an IO stream
+//	- tellp()
+//
+//	- seekg(pos)			reposition the marker in the IO stream to the given absolute address
+//	- seekp(pos)			pos is ussually a value returned by a previous call to the corresponding tell_().
+//
+// 	- seekp(off, from)		reposition the marker relatively by "off" (integer) number of characters
+// 	- seekg(off, from)		ahead or behind "from", which can be:
+//								- "beg", seek to the begining of the file,
+//								- "cur", seek to the current position "pos"
+//								- "end", end of the stream
 
 
 
