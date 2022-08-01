@@ -19,6 +19,20 @@
 
 
 
+// To suppor random access, the IO types maintain a marker,
+// used to determine where the next read/write will be performed.
+//
+// We have two functions: one repositions the marker by seeking to a given position.
+// Another one tells us the current position.
+//
+// There are two pairs of seek and tell functions, for input and output.
+// Withe the "g" suffix (for "get"), and "p" suffix (for "put").
+//
+
+
+
+
+
 int main() {
 
 }
