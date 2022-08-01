@@ -147,6 +147,11 @@ void ignore_useful_example()
 
 	// Note, the call to the manipulator changes the state of the stream
 	// So, the manipulator will be in effect for any consequent operations.
+
+	// In general, we should avoid combining formatted input operations (operator>>())
+	// With unformatted input operations.
+	// Unformatted input operations are anything other than that,
+	// like std::getline(), std::cin.read(), std::cin.get(), etc
 }
 
 int main() {
