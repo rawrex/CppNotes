@@ -136,7 +136,7 @@ void ignore_useful_example()
 	// And if we were to call getline() right now, it will see the '\n' first of all
 	// The '\n' will be discarded, but the input operation will stop immediately.
 	// std::getline(std::cin, line);
-	// std::cin.ignore();
+	std::cin.ignore();
 	std::getline(std::cin, line);
 	std::cout << ch << ' ' << line << std::endl;
 }
