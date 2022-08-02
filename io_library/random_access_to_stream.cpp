@@ -27,6 +27,9 @@
 //
 // There are two pairs of seek and tell functions, for input and output.
 // With the "g" suffix (for "get"), and "p" suffix (for "put").
+// We can use the "g" version on std::istream (ifstream, istringstream)
+// And we use the "p" version on std::ostream (ofstream, ostringstream).
+// We can use both on the std::iostream (fstream, stringstream).
 //
 //	- tellg()				return the current position of the marker in an IO stream
 //	- tellp()
