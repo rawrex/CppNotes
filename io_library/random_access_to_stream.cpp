@@ -31,17 +31,29 @@
 // And we use the "p" version on std::ostream (ofstream, ostringstream).
 // We can use both on the std::iostream (fstream, stringstream).
 //
-//	- tellg()				return the current position of the marker in an IO stream
-//	- tellp()
+//	tellg()					return the current position of the marker in an IO stream, pos_type type.
+//	tellp()					
 //
-//	- seekg(pos)			reposition the marker in the IO stream to the given absolute address
-//	- seekp(pos)			pos is ussually a value returned by a previous call to the corresponding tell_().
+//	seekg(position)			reposition the marker in the IO stream to the given absolute address
+//	seekp(position)			pos is ussually a value returned by a previous call to the corresponding tell_().
 //
-// 	- seekp(off, from)		reposition the marker relatively by "off" (integer) number of characters
-// 	- seekg(off, from)		ahead or behind "from", which can be:
-//								- "beg", seek to the begining of the file,
-//								- "cur", seek to the current position "pos"
-//								- "end", end of the stream
+// 	seekp(offset, from)		reposition the marker relatively by "off" (integer) number of characters
+// 	seekg(offset, from)		ahead or behind "from", which can be:
+//									- "beg", seek to the begining of the file,
+//									- "cur", seek to the current position "pos"
+//									- "end", end of the stream
+//
+// Note, here, "offset" and "position" have machine dependent types,
+// named "off_type" and "pos_type" accordingly.
+
+
+// Even though the library maintains two functions for putting and getting from the stream
+// It maintains a single marker in the stream for both uses.
+// The std::iostream maintains a single buffer both for writing and reading 
+// that holds a single marker for the current position in itself.
+// The library maps both the "g" and "p" versions to that single marker.
+//
+// So, note, we must seek() to reposition the marker whenether we want to read or write separately.
 
 
 
