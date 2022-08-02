@@ -26,7 +26,7 @@
 // Another one tells us the current position.
 //
 // There are two pairs of seek and tell functions, for input and output.
-// Withe the "g" suffix (for "get"), and "p" suffix (for "put").
+// With the "g" suffix (for "get"), and "p" suffix (for "put").
 //
 //	- tellg()				return the current position of the marker in an IO stream
 //	- tellp()
