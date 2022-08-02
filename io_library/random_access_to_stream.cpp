@@ -19,7 +19,7 @@
 
 
 
-// To suppor random access, the IO types maintain a marker,
+// To support random access, the IO types maintain a marker,
 // used to determine where the next read/write will be performed.
 //
 // We have two functions: one repositions the marker by seeking to a given position.
