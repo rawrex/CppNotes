@@ -12,6 +12,15 @@
 // If we were to call the random access funcitons on them, the calls will fail at run-time,
 // Leaving the stream in invalid state.
 
+void random_access_on_cin_example() 
+{
+	auto current_pos = std::cin.tellg();	// Get the current position marker
+	std::cout << current_pos << std::endl;	// Prints -1 on my machine
+	std::cin.seekg(21, std::cin.beg);		// Supposed seek to some location
+	current_pos = std::cin.tellg();			// Update the current position marker
+	std::cout << current_pos << std::endl;	// Still prints -1 on my machine
+}
+
 // Note, in general, we should use the higher-level abstracitons porvided by the library.
 // Use of the low-level routines is highly error-prone.
 // E.g. it is a common error to use char type for the return from the peek() or get(), rather than int.
@@ -59,5 +68,5 @@
 
 
 int main() {
-
+	random_access_on_cin_example();
 }
