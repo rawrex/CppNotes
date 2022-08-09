@@ -2,6 +2,11 @@
 #include <vector>
 #include <list>
 
+// The elements themselves are not copied or moved, only internal structures are changed.
+// So, swap on all types (except std::array) is guaranteed to be a constant time operation.
+//
+// Note, however, swapping two arrays does exchange their elements,
+// so swap on arrays grows proportionally to their sizes.
 
 void swap_diff_types_fail()
 {
@@ -30,6 +35,8 @@ void swap_iterators_not_invalidate()
 
 	std::cout << *iter_2 << std::endl;			// now should refer to an element with the same value 11
 	std::cout << *vec1.cbegin() << std::endl;	// only in the different container, the vec1
+
+	// Note, the call to swap() on a std::string may invalidate iterators, references and pointers.
 }
 
 	
