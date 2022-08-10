@@ -22,6 +22,9 @@ void print(const Msg& msg, const T& a, const T& b)
 // Note, however, swapping two arrays does exchange their elements,
 // so swap on arrays grows proportionally to their sizes.
 
+// Also, note, we generally should use the non-member version of swap, the std::swap.
+// Since it is suitable for generic programming and is a good habit.
+
 void swap_diff_types_fail()
 {
 	std::list<int> lt{1,2,3,4,5};
@@ -46,16 +49,19 @@ void swap_iterators_not_invalidate()
 	
 	// now iter_1 should refer to an element with the same value 1
 	// only in the different container, the vec2
-	print("Swaped places, iter1 and vec2.cbegin()", *iter_1, *vec2.cbegin());
+	print("Swaped, iter1 and vec2.cbegin()", *iter_1, *vec2.cbegin());
 
 	// now iter_2 should refer to an element with the same value 11
 	// only in the different container, the vec1
-	print("Swaped places, iter2 and vec1.cbegin()", *iter_2, *vec1.cbegin());
+	print("Swaped, iter2 and vec1.cbegin()", *iter_2, *vec1.cbegin());
 
 	// Note, the call to swap() on a std::string may invalidate iterators, references and pointers.
 }
 void swap_array_example()
-{
+{ 
+	// In std::array, pointers, references, and iterators remain bound to the same element
+	// they denoted before the swap, with the value of that element changed.
+
 	std::array<int, 4> arr_1 {1,2,3,4};
 	std::array<int, 4> arr_2 {11,22,33,44};
 
