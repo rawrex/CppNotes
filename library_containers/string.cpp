@@ -28,7 +28,7 @@ void additional_ways_to_construct_string()
 
 	std::string s_foo(cp, foo_size);	
 	std::string s_foo_bar(cp, foo_bar_size);
-	std::string s_wrong(cp, wrong_size);		// Note, no waringings issued here
+	std::string s_wrong(cp, wrong_size);		// Note, no warnings issued here
 
 	print(s_foo);
 	print(s_foo_bar);
@@ -43,12 +43,10 @@ void additional_ways_to_construct_string()
 	const size_t position_wrong = 9;
 
 	std::string s_bar_copy(s_foo_bar, position);	
-	print(s_bar_copy);
-
-	// terminate called after throwing an instance of 'std::out_of_range'
-	// what():  basic_string::basic_string: __pos (which is 9) > this->size() (which is 7)
-	// Aborted (core dumped)
+	// throws 'std::out_of_range'
 	// std::string s_bar_wrong(s_foo_bar, position_wrong);	
+
+	print(s_bar_copy);
 
 
 	
@@ -67,6 +65,8 @@ void additional_ways_to_construct_string()
 	print(s_bar_copy_not_wrong);
 	
 }
+
+
 
 int main() {
 
