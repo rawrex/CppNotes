@@ -7,15 +7,11 @@ template <typename T, size_t StackSize>
 class StaticVector
 {
 public:
-	StaticVector() = default;
-	
 	template <typename... Args>
 	StaticVector(size_t size, Args&&... args) 
 		: current_stack_size(size < StackSize ? size : StackSize)
 	{
-		// if size > StackSize we need to do something more
-		// also, in this case, we cannot assign "size" to the "stack_size"
-		// since the current_stack_size must be <= StackSize
+		// if size > StackSize we need to allocate dynamic memory
 
 		for (size_t i=0; i!= size; ++i)
 			new (stack_data+i) T(std::forward<Args>(args)...);	
@@ -48,6 +44,5 @@ int main() {
 	StaticVector<std::string, 3> svec(2, 10, 'x');
 	std::cout << svec[0] << std::endl;
 	std::cout << svec[1] << std::endl;
-	std::cout << svec[2] << std::endl;
 	
 }
