@@ -14,7 +14,10 @@ int main() {
 	// We can (?) use the placement new to construct 
 	new (p+2) std::string(6, 'z');
 
-	std::cout << p[0] << std::endl;
-	std::cout << p[1] << std::endl;
-	std::cout << p[2] << std::endl;
+	// These three are constructed
+	std::cout << p[0] << ' ' << p[1] << ' ' << p[2] << std::endl;
+
+	// This one is not 
+	p[3] = std::string("Foobar");
+	std::cout << *(p+3) << std::endl;
 }
