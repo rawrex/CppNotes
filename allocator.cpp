@@ -7,9 +7,12 @@ int main() {
 	std::allocator<std::string> a;
 	auto p = a.allocate(10);
 
-	new (p+2) std::string(6, 'z');
+	// We can construct in different order
 	a.construct(p+1, 6, 'y');
 	a.construct(p, 6, 'x');
+
+	// We can (?) use the placement new to construct 
+	new (p+2) std::string(6, 'z');
 
 	std::cout << p[0] << std::endl;
 	std::cout << p[1] << std::endl;
