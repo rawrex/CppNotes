@@ -1,11 +1,8 @@
-#include <iostream>
-
+// Forward declare a template class that we're going to befriend with the Bar
 template <typename T>
-class Foo
-{
-	
-};
+class Foo;
 
+// Needed to declare the equality operator
 template <typename T>
 class Bar;
 
