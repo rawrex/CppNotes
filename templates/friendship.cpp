@@ -40,6 +40,10 @@ class MyClass
 	// Only one instance is a friend of MyClass
 	friend class FriendOnlySpecificInstance<int>;
 	friend class FriendOnlySpecificInstance<MyClass>;
+
+	// It is okay to befriend our class with a built-in type
+	// E.g. as in MyClass<int>
+	friend Type;
 };
 
 int main() {
