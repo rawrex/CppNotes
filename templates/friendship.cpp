@@ -17,6 +17,10 @@ class MyClass;
 template <typename Type>
 bool operator==(const MyClass<Type>&, const MyClass<Type>&);
 
+// Specific instance friend
+template <typename Type>
+class FriendOnlySpecificInstance;
+
 template <typename Type>
 class MyClass
 {
@@ -26,6 +30,9 @@ class MyClass
 	// One-to-one friendship (both the operator and the Foo)
 	friend class FriendToOneInstance<Type>;
 	friend bool operator==<Type>(const MyClass<Type>&, const MyClass<Type>&);
+
+	// Only one instance is a friend of MyClass (only the int one)
+	friend class FriendOnlySpecificInstance<int>;
 };
 
 int main() {
