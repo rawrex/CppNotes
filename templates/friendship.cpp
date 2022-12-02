@@ -33,6 +33,7 @@ class MyClass
 
 	// Only one instance is a friend of MyClass (only the int one)
 	friend class FriendOnlySpecificInstance<int>;
+	friend class FriendOnlySpecificInstance<MyClass>;
 };
 
 int main() {
