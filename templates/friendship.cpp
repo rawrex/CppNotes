@@ -1,19 +1,20 @@
 // Forward declare a template class that we're going to befriend with the Bar
-template <typename T>
-class Foo;
+template <typename Type>
+class Friend;
 
 // Needed to declare the equality operator
-template <typename T>
-class Bar;
+template <typename Type>
+class MyClass;
 
-template <typename T>
-bool operator==(const Bar<T>&, const Bar<T>&);
+template <typename Type>
+bool operator==(const MyClass<T>&, const MyClass<T>&);
 
-template <typename T>
-class Bar
+template <typename Type>
+class MyClass
 {
-	friend class Foo<T>;
-	friend bool operator==<T>(const Bar<T>&, const Bar<T>&);
+	// One-to-one friendship example (both the operator and the Foo)
+	friend class Friend<Type>;
+	friend bool operator==<Type>(const MyClass<Type>&, const MyClass<Type>&);
 };
 
 int main() {
