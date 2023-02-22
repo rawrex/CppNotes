@@ -105,8 +105,5 @@
     <ClCompile Include="src\unary_plus_minus_to_pointer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\void_ptr.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

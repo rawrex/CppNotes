@@ -18,11 +18,14 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\const_ref_to_promoted_tmp.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8e1b0826-83da-4019-8267-9f5138f89c2e}</ProjectGuid>
-    <RootNamespace>CppNotes</RootNamespace>
+    <ProjectGuid>{de266eaa-ab50-4296-aecf-4c5235ebeeba}</ProjectGuid>
+    <RootNamespace>constreftopromotedtmp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -126,38 +129,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="CppNotes.cpp" />
-    <ClCompile Include="src\allocator.cpp" />
-    <ClCompile Include="src\array_pointer.cpp" />
-    <ClCompile Include="src\bitwise.cpp" />
-    <ClCompile Include="src\comma.cpp" />
-    <ClCompile Include="src\conditional_op_lvalue_rvalue.cpp" />
-    <ClCompile Include="src\const_ref_to_promoted_tmp.cpp" />
-    <ClCompile Include="src\ctor_inclass_default.cpp" />
-    <ClCompile Include="src\c_str_can_change.cpp" />
-    <ClCompile Include="src\default_value_init.cpp" />
-    <ClCompile Include="src\deleted_members.cpp" />
-    <ClCompile Include="src\dot_arrow_refness.cpp" />
-    <ClCompile Include="src\exceptions.cpp" />
-    <ClCompile Include="src\function_ptr.cpp" />
-    <ClCompile Include="src\inclass_initializers_for_class_types.cpp" />
-    <ClCompile Include="src\is_integral.cpp" />
-    <ClCompile Include="src\lambda.cpp" />
-    <ClCompile Include="src\literal_classes.cpp" />
-    <ClCompile Include="src\map_pair_string.cpp" />
-    <ClCompile Include="src\nontype_template_ref_or_ptr_params.cpp" />
-    <ClCompile Include="src\only_ints_to_modulus.cpp" />
-    <ClCompile Include="src\redefining_type_from_outer_scope.cpp" />
-    <ClCompile Include="src\return_ptr_to_arr.cpp" />
-    <ClCompile Include="src\return_to_local_static.cpp" />
-    <ClCompile Include="src\StaticVector.cpp" />
-    <ClCompile Include="src\template_using.cpp" />
-    <ClCompile Include="src\TODO_dependent_names.cpp" />
-    <ClCompile Include="src\top_level_const_auto.cpp" />
-    <ClCompile Include="src\trivial_std_layout_pod_types.cpp" />
-    <ClCompile Include="src\unary_plus_minus_to_pointer.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
