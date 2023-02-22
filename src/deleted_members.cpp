@@ -8,5 +8,5 @@ public:
 
 int main() {
 	auto p = new DeletedDtor();
-	delete p;
+	// delete p;
 }

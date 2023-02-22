@@ -38,7 +38,7 @@ int main() {
 	// can change the values you see in an uninitialized data structure.
 
 	Foo foo_a;		// warning: ‘foo_a.Foo::x’ is used uninitialized in this function
-	std::cout << "foo_a.x = \t\t" << foo_a.x << std::endl;;	// x contains garbage (may look meaningful)
+	// std::cout << "foo_a.x = \t\t" << foo_a.x << std::endl;;	// x contains garbage (may look meaningful)
 
 	// e.g. this code can affect the contents of the foo_a.x:
 	Bar b(3.14);

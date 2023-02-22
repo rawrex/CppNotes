@@ -68,7 +68,7 @@ int main()
 	// Into the memory location of trivial2
 	std::memcpy(&trivial2, arr, sizeof(Trivial));
 
-	std::cout << f2.a << std::endl;
+	// std::cout << f2.a << std::endl;
 }
 
 // Standard layout types

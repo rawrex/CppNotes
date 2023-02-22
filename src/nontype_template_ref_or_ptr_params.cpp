@@ -16,13 +16,13 @@ int main()
 	static int* pi = &i;
 
 	// ok
-	print_ptr<&si>();
+	// print_ptr<&si>();
 
 	// error: the address of ‘i’ is not a valid template argument
 	// because it does not have static storage duration
-	print_ptr<&i>();
+	// print_ptr<&i>();
 
 	// error: ‘pi’ is not a valid template argument because ‘pi’ is a variable,
 	// not the address of a variable
-	print_ptr<pi>();
+	// print_ptr<pi>();
 }
