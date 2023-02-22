@@ -7,7 +7,8 @@ int main()
 	std::tuple<const char*, std::string, std::wstring> strings_a { "foo", "bar", L"baz" };
 	const auto strings_b = std::make_tuple("foo", "bar", L"baz");
 
-	std::cout << "strings_b size: " << std::tuple_size<decltype(strings_b)>::value << std::endl;
+	constexpr size_t size = std::tuple_size<decltype(strings_b)>::value;
+	std::cout << "strings_b size: " << size << std::endl;
 
 	std::cout << std::get<0>(strings_b) << std::endl;
 	std::cout << std::get<1>(strings_b) << std::endl;
@@ -25,5 +26,4 @@ int main()
 	std::cout << typeid(std::tuple_element<0, decltype(strings_b)>::type).name() << std::endl;
 	std::cout << typeid(std::tuple_element<1, decltype(strings_b)>::type).name() << std::endl;
 	std::cout << typeid(std::tuple_element<2, decltype(strings_b)>::type).name() << std::endl;
-
 }
