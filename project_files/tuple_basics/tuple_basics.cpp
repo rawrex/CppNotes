@@ -46,4 +46,5 @@ void tupleCat()
 int main()
 {
 	basicTupleUses();
+	tupleCat();
 }
