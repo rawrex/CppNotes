@@ -63,6 +63,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "deleted_members", "project_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tuple_basics", "project_files\tuple_basics\tuple_basics.vcxproj", "{146F51A7-93D2-4C17-9BE4-7BB3FB8F9900}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bitset", "project_files\bitset\bitset.vcxproj", "{331F1555-0623-4589-91F6-F3335D47827C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -311,6 +313,14 @@ Global
 		{146F51A7-93D2-4C17-9BE4-7BB3FB8F9900}.Release|x64.Build.0 = Release|x64
 		{146F51A7-93D2-4C17-9BE4-7BB3FB8F9900}.Release|x86.ActiveCfg = Release|Win32
 		{146F51A7-93D2-4C17-9BE4-7BB3FB8F9900}.Release|x86.Build.0 = Release|Win32
+		{331F1555-0623-4589-91F6-F3335D47827C}.Debug|x64.ActiveCfg = Debug|x64
+		{331F1555-0623-4589-91F6-F3335D47827C}.Debug|x64.Build.0 = Debug|x64
+		{331F1555-0623-4589-91F6-F3335D47827C}.Debug|x86.ActiveCfg = Debug|Win32
+		{331F1555-0623-4589-91F6-F3335D47827C}.Debug|x86.Build.0 = Debug|Win32
+		{331F1555-0623-4589-91F6-F3335D47827C}.Release|x64.ActiveCfg = Release|x64
+		{331F1555-0623-4589-91F6-F3335D47827C}.Release|x64.Build.0 = Release|x64
+		{331F1555-0623-4589-91F6-F3335D47827C}.Release|x86.ActiveCfg = Release|Win32
+		{331F1555-0623-4589-91F6-F3335D47827C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
