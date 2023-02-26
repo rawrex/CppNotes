@@ -143,7 +143,7 @@ void ignore_useful_example()
 	// Another way to discard the whitespace is to use the std::ws manipulator 
 	// whici is designed to extract and discard leading whitespace from the beginning of an input stream:
 	// std::cin >> std::ws returns the std::cin itself:
-	std::getline(std::cin >> std::ws, name);
+	// std::getline(std::cin >> std::ws, name);
 
 	// Note, the call to the manipulator changes the state of the stream
 	// So, the manipulator will be in effect for any consequent operations.

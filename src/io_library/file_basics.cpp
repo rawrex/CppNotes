@@ -20,8 +20,8 @@ void readFromFile()
 
 	// We can use the IO operators and getline in the usual way on file streams.
 	// As we would have done with any other inherited object where a parent was expected.
-	while(std::getline(input_file, current_line))
-		print(current_line);
+//	while(std::getline(input_file, current_line))
+//		print(current_line);
 }
 
 void openClose()
@@ -32,7 +32,7 @@ void openClose()
 	// it sets the stream's state so that the good() yields true
 	ifstream.open(test_filename);			// Explicitly open a file for this file stream
 
-	if(test_filename)						// It is usually a good idea to verify that open succeeded
+	if(ifstream)						// It is usually a good idea to verify that open succeeded
 		print("Opened successfully: '" + test_filename + "'");
 	else
 		// If a call to open fails, failbit is set
@@ -102,7 +102,7 @@ int main() {
 	readFromFile();
 
 	// Open a file, checking if it is ok to open it
-	openClose(test_filename);
+	openClose();
 
 	// Open a file for this stream to open another file for it later
 	openAnotherFileSameStream();

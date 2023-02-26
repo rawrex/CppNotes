@@ -57,10 +57,10 @@ std::ofstream	c("test.file", std::ios_base::in);
 // while std::fstream has both.
 
 // E.g. we cannot do this:
-b.write("abc", 3);				// error: b does not have a write function
+// b.write("abc", 3);				// error: b does not have a write function
 
 // But this works, since, yet b is an std::ifstream, we've opened it with std::ios_base::out:
-g.rdbuf()->sputn("abc", 3);		// we still have write access
+// g.rdbuf()->sputn("abc", 3);		// we still have write access
 
 
 
