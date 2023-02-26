@@ -31,6 +31,9 @@ void basicExample()
 		"The smallest value: " << engine.min() << 
 		"; The largest value: " << engine.max() 
 	<< std::endl;
+
+	// Advance the engine by three steps
+	engine.discard(3);
 }
 
 void distributionExample()
