@@ -78,7 +78,7 @@ void miscExample()
 	static std::default_random_engine engine(time(nullptr));
 	static std::normal_distribution<> normal_distribution(4, 1.5);	// Mean 4, standard deviation 1.5
 
-	std::cout << "Noram distribution: " << normal_distribution(engine) << std::endl;
+	std::cout << "Normal distribution: " << normal_distribution(engine) << std::endl;
 
 	// Note that the call can still produce values outside of the [0, 9]
 	while (true)
