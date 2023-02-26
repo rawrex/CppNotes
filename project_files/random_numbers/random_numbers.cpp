@@ -27,7 +27,10 @@ void basicExample()
 	std::default_random_engine::result_type random_number = engine();
 	std::cout << random_number << std::endl;
 
-	std::cout << "The smallest value: " << engine.min() << "; The largest value: " << engine.max() << std::endl;
+	std::cout << 
+		"The smallest value: " << engine.min() << 
+		"; The largest value: " << engine.max() 
+	<< std::endl;
 }
 
 void distributionExample()
@@ -41,8 +44,12 @@ void distributionExample()
 
 	// A "random number generator" is the two entities combined
 	std::default_random_engine::result_type random_number = distribution(engine);
-
 	std::cout << random_number << std::endl;
+
+	std::cout << 
+		"The smallest distribution value: " << distribution.min() << 
+		"; The largest distribution value: " << distribution.max() 
+	<< std::endl;
 }
 
 
