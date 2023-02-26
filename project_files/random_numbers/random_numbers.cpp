@@ -18,8 +18,15 @@ void legacyExample()
 void basicExample()
 {
 	std::cout << "\nBasic example:" << std::endl;
+	
+	// Seed the current time as well
 	std::default_random_engine engine(time(nullptr));
-	std::cout << engine() << std::endl;
+
+	// Unsigned integral type that the engine generates
+	std::default_random_engine::result_type random_number = engine();
+	std::cout << random_number << std::endl;
+
+	std::cout << "The smallest value: " << engine.min() << "; The largest value: " << engine.max() << std::endl;
 }
 
 
