@@ -50,6 +50,11 @@ void distributionExample()
 		"The smallest distribution value: " << distribution.min() << 
 		"; The largest distribution value: " << distribution.max() 
 	<< std::endl;
+
+	// Reistablish the state of the distribution
+	// Subsequent calls has no dependence on the values the distribution has already generated
+	distribution.reset();
+	std::cout << distribution(engine) << std::endl;
 }
 
 
