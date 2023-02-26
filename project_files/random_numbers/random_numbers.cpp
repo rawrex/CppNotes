@@ -57,10 +57,20 @@ void distributionExample()
 	std::cout << distribution(engine) << std::endl;
 }
 
+void realDistributionExample()
+{
+	std::cout << "\nReal distribution example:" << std::endl;
+
+	static std::default_random_engine engine(time(nullptr));
+	static std::uniform_real_distribution<> real_distribution;
+
+	std::cout << real_distribution(engine) << std::endl;
+}
 
 int main()
 {
 	legacyExample();
 	basicExample();
 	distributionExample();
+	realDistributionExample();
 }
