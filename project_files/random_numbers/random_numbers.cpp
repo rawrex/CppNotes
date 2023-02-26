@@ -70,10 +70,34 @@ void realDistributionExample()
 	std::cout << real_distribution(engine) << std::endl;
 }
 
+void miscExample()
+{
+	std::cout << "\nThere are more than 20 distribution types" << std::endl;
+	std::cout << "E.g. a normal distribution example:" << std::endl;
+
+	static std::default_random_engine engine(time(nullptr));
+	static std::normal_distribution<> normal_distribution(4, 1.5);	// Mean 4, standard deviation 1.5
+
+	std::cout << "Noram distribution: " << normal_distribution(engine) << std::endl;
+
+	// Note that the call can still produce values outside of the [0, 9]
+	while (true)
+	{
+		const auto value = normal_distribution(engine);
+		if (value > 10)
+		{
+			std::cout << "A value outside expacted range: " << value << std::endl;
+			return;
+		}
+	}
+}
+
+
 int main()
 {
 	legacyExample();
 	basicExample();
 	distributionExample();
 	realDistributionExample();
+	miscExample();
 }
