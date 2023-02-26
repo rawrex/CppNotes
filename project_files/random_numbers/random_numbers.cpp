@@ -20,6 +20,7 @@ void basicExample()
 	std::cout << "\nBasic example:" << std::endl;
 	
 	// Seed the current time as well
+	// We can use any other integral value, even a fixed one (e.g. to aid testing)
 	std::default_random_engine engine(time(nullptr));
 
 	// Unsigned integral type that the engine generates
