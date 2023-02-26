@@ -29,10 +29,25 @@ void basicExample()
 	std::cout << "The smallest value: " << engine.min() << "; The largest value: " << engine.max() << std::endl;
 }
 
+void distributionExample()
+{
+	std::cout << "\nDistribution example:" << std::endl;
+	
+	// A given generator returns the same sqeunce of number each time (with the same seed of course)
+	// So, we have to declare both the engine and the distribution as static
+	static std::uniform_int_distribution<> distribution(0, 9);	// Inclusive ranges
+	static std::default_random_engine engine(time(nullptr));
+
+	// A "random number generator" is the two entities combined
+	std::default_random_engine::result_type random_number = distribution(engine);
+
+	std::cout << random_number << std::endl;
+}
 
 
 int main()
 {
 	legacyExample();
 	basicExample();
+	distributionExample();
 }
