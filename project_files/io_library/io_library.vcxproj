@@ -19,18 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\io_library\buffer_management.cpp" />
-    <ClCompile Include="..\..\src\io_library\condition_states.cpp" />
-    <ClCompile Include="..\..\src\io_library\condition_states_examples.cpp" />
-    <ClCompile Include="..\..\src\io_library\file_basics.cpp" />
-    <ClCompile Include="..\..\src\io_library\file_modes.cpp" />
-    <ClCompile Include="..\..\src\io_library\format_state_management.cpp" />
-    <ClCompile Include="..\..\src\io_library\multibyte_io.cpp" />
-    <ClCompile Include="..\..\src\io_library\output_buffer.cpp" />
-    <ClCompile Include="..\..\src\io_library\random_access_to_stream.cpp" />
-    <ClCompile Include="..\..\src\io_library\string_basics.cpp" />
-    <ClCompile Include="..\..\src\io_library\tie_input_to_output.cpp" />
-    <ClCompile Include="..\..\src\io_library\unformatted_io.cpp" />
+    <ClCompile Include="..\..\src\io_library\buffer_management.h" />
+    <ClCompile Include="..\..\src\io_library\condition_states.h" />
+    <ClCompile Include="..\..\src\io_library\condition_states_examples.h" />
+    <ClCompile Include="..\..\src\io_library\file_basics.h" />
+    <ClCompile Include="..\..\src\io_library\file_modes.h" />
+    <ClCompile Include="..\..\src\io_library\format_state_management.h" />
+    <ClCompile Include="..\..\src\io_library\main.cpp" />
+    <ClCompile Include="..\..\src\io_library\multibyte_io.h" />
+    <ClCompile Include="..\..\src\io_library\output_buffer.h" />
+    <ClCompile Include="..\..\src\io_library\random_access_to_stream.h" />
+    <ClCompile Include="..\..\src\io_library\string_basics.h" />
+    <ClCompile Include="..\..\src\io_library\tie_input_to_output.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

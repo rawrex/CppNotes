@@ -25,7 +25,8 @@ void sleep(unsigned duration)
 }
 	
 
-int main() {
+void output_buffer_main() 
+{
 	// Explicitly make sure we print Foo before sleeping
 	std::cout << "Foo!" << std::flush;
 

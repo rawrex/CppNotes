@@ -7,7 +7,8 @@ void sleep(unsigned duration = 3)
 	std::this_thread::sleep_for(std::chrono::seconds(duration));
 }
 
-int main() {
+void buffer_management_main() 
+{
 
 	// Since our std::cout goes to a terminal, it is (usually) line buffered.
 	// If we were to direct the std::cout to a pipe, file, or some other non-interactive destination,

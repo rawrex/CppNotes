@@ -36,6 +36,7 @@ void basic_set_clear_test()
 	test_cin();
 }
 
-int main() {
+void condition_states_examples_main() 
+{
 	basic_set_clear_test();
 }

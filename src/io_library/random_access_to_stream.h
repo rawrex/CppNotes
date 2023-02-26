@@ -67,6 +67,7 @@ void random_access_on_cin_example()
 
 
 
-int main() {
+void random_access_to_stream_main() 
+{
 	random_access_on_cin_example();
 }

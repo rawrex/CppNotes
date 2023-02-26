@@ -114,7 +114,8 @@ void restoreTestFiles()
 	another_test_file << "foo\nbar\nbaz\n";
 }
 
-int main() {
+void file_modes_main() 
+{
 	
 	// Let's see how these modes are defined in our system
 	// My system printed the following:

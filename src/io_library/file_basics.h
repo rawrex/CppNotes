@@ -96,7 +96,8 @@ void closeClosedFile()
 	// (A case of RAII idiom)
 }
 		
-int main() {
+void file_basics_main() 
+{
 	
 	// Read from file and print its contents line by line
 	readFromFile();

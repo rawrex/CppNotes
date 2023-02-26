@@ -29,7 +29,8 @@
 // The on/off ones of these has a counterpart that sets the state to the opposite mode.
 
 
-int main() {
+void format_state_management_main() 
+{
 
 	// A manipulator returns the stream to which it is applied, so we can chain operations:
 	std::cout << std::boolalpha << true << std::noboolalpha << ' ' << false << std::endl;

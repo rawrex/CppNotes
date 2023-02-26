@@ -64,7 +64,8 @@ void example_istringstream()
 // And then print it as a whole
 				
 
-int main() {
+void string_basics_main() 
+{
 
 	std::string string_a("Foo bar");
 	std::stringstream string_stream(string_a);		// Holds a copy of the str, this ctor is explicit

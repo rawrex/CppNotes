@@ -3,7 +3,7 @@
 
 void print(const std::string& msg)
 {
-std::cout << msg << std::endl;
+	std::cout << msg << std::endl;
 }
 
 
@@ -66,31 +66,31 @@ std::cout << msg << std::endl;
 
 void get_example()
 {
-constexpr size_t size = 5;
-char buffer[size];
-const char delim = 'x';
+	constexpr size_t size = 5;
+	char buffer[size];
+	const char delim = 'x';
 
-// Get characters from the stdin, until we get four or an 'x'
-// Note, whitespace counts too
-std::cin.get(buffer, size, delim);
+	// Get characters from the stdin, until we get four or an 'x'
+	// Note, whitespace counts too
+	std::cin.get(buffer, size, delim);
 
-print("write:");
-std::cout.write(buffer, size);
+	print("write:");
+	std::cout.write(buffer, size);
 }
 
 void getline_example()
 {
-constexpr size_t size = 5;
-char buffer[size];
-const char delim = 'x';
+	constexpr size_t size = 5;
+	char buffer[size];
+	const char delim = 'x';
 
-// Get characters from the stdin, until we get four or an 'x',
-// Then read the fifth character and discard it from the stream
-// Note, whitespace counts too
-std::cin.getline(buffer, size, delim);
+	// Get characters from the stdin, until we get four or an 'x',
+	// Then read the fifth character and discard it from the stream
+	// Note, whitespace counts too
+	std::cin.getline(buffer, size, delim);
 
-print("write:");
-std::cout.write(buffer, size);
+	print("write:");
+	std::cout.write(buffer, size);
 }
 
 void read_example()
@@ -154,7 +154,8 @@ void ignore_useful_example()
 	// like std::getline(), std::cin.read(), std::cin.get(), etc
 }
 
-int main() {
+void multibyte_io_main() 
+{
 
 //	print("get:");
 //	get_example();

@@ -2,7 +2,7 @@
 #include <fstream>
 #include <sstream>
 
-int main()
+void condition_states_main()
 {
 	using stream = std::iostream;
 	std::istream strm(nullptr);
