@@ -13,7 +13,7 @@
 
 // Manipulators defined in the std::iostream namespace:
 // boolalpha						- true and false as strings
-// showbas							- generate prefix
+// showbase							- generate prefix
 // showpoint						- show decimal point for f.p. with whole values
 // showpos							- explicitly display sign of a number
 // uppercase						- print 0X and E for scientific
