@@ -7,10 +7,23 @@
 #include "multibyte_io.h"
 #include "output_buffer.h"
 #include "random_access_to_stream.h"
-#include "string_basics.h"
 #include "tie_input_to_output.h"
+#include "string_basics.h"
+#include "unformatted_io.h"
 
 int main()
 {
-	condition_states_examples_main();
+	// buffer_management_main();
+	// condition_states_main();
+	// condition_states_examples_main();
+	// file_basics_main();
+	// file_modes_main();
+	// format_state_management_main();
+	// multibyte_io_main();
+	// output_buffer_main();
+	// random_access_to_stream_main();
+
+	// string_basics_main();	// Unresolved call for some reason
+
+	// tie_input_to_output_main();
 }

@@ -67,7 +67,6 @@ void example_istringstream()
 
 void string_basics_main() 
 {
-
 	std::string string_a("Foo bar");
 	std::stringstream string_stream(string_a);		// Holds a copy of the str, this ctor is explicit
 
@@ -77,5 +76,4 @@ void string_basics_main()
 	string_stream.str(string_c);					// Copies string into the stream, returns void
 
 	example_istringstream();
-
 }
