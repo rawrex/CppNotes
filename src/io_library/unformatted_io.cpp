@@ -1,3 +1,4 @@
+#include "unformatted_io.h"
 #include <iostream>
 
 // Several unformatted IO operations deal with a stream one byte at a time.
@@ -117,7 +118,8 @@ void example_int_returns()
 
 }
 
-int main() {
+void unformatted_io_main() 
+{
 	// example_peek();
 	// example_unget();
 	// example_putback();

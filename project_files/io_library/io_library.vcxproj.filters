@@ -1,17 +1,127 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\src\io_library\buffer_management.h" />
-    <ClCompile Include="..\..\src\io_library\condition_states.h" />
-    <ClCompile Include="..\..\src\io_library\condition_states_examples.h" />
-    <ClCompile Include="..\..\src\io_library\file_basics.h" />
-    <ClCompile Include="..\..\src\io_library\file_modes.h" />
-    <ClCompile Include="..\..\src\io_library\format_state_management.h" />
-    <ClCompile Include="..\..\src\io_library\multibyte_io.h" />
-    <ClCompile Include="..\..\src\io_library\output_buffer.h" />
-    <ClCompile Include="..\..\src\io_library\random_access_to_stream.h" />
-    <ClCompile Include="..\..\src\io_library\string_basics.h" />
-    <ClCompile Include="..\..\src\io_library\tie_input_to_output.h" />
     <ClCompile Include="..\..\src\io_library\main.cpp" />
+    <ClCompile Include="..\..\src\io_library\utils\utils.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\buffer_management.cpp">
+      <Filter>buffer_management</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\buffer_management.h">
+      <Filter>buffer_management</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\condition_states.h">
+      <Filter>condition_states</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\condition_states.cpp">
+      <Filter>condition_states</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\condition_states_examples.h">
+      <Filter>condition_states_examples</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\condition_states_examples.cpp">
+      <Filter>condition_states_examples</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\file_basics.cpp">
+      <Filter>file_basics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\file_basics.h">
+      <Filter>file_basics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\file_modes.h">
+      <Filter>file_modes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\file_modes.cpp">
+      <Filter>file_modes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\format_state_management.h">
+      <Filter>format_state_management</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\format_state_management.cpp">
+      <Filter>format_state_management</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\multibyte_io.h">
+      <Filter>multibyte_io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\multibyte_io.cpp">
+      <Filter>multibyte_io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\output_buffer.h">
+      <Filter>output_buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\output_buffer.cpp">
+      <Filter>output_buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\unformatted_io.cpp">
+      <Filter>unformatted_io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\random_access_to_stream.h">
+      <Filter>random_access_to_stream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\random_access_to_stream.cpp">
+      <Filter>random_access_to_stream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\string_basics.h">
+      <Filter>string_basics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\string_basics.cpp">
+      <Filter>string_basics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\tie_input_to_output.h">
+      <Filter>tie_input_to_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io_library\tie_input_to_output.cpp">
+      <Filter>tie_input_to_output</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="utils">
+      <UniqueIdentifier>{04205e4b-a523-4501-8872-1ad31c03eb91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="buffer_management">
+      <UniqueIdentifier>{9fecbe86-913e-48af-8801-aff6eee0365f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="condition_states">
+      <UniqueIdentifier>{5d46da72-3941-4428-9360-464dc39e8d82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="condition_states_examples">
+      <UniqueIdentifier>{abb1ce23-7bdd-4ad0-b3c6-6b9aaaaca0bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="file_basics">
+      <UniqueIdentifier>{d086d7c6-225d-4589-897c-9015101cd71b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="file_modes">
+      <UniqueIdentifier>{13fb9fdf-62d9-48bd-9827-1a06d07c0122}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="format_state_management">
+      <UniqueIdentifier>{479db5c6-7418-44dd-8da9-41ae028f4681}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="multibyte_io">
+      <UniqueIdentifier>{1b83bb03-7485-4c52-a547-9dc38050c961}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="output_buffer">
+      <UniqueIdentifier>{62e419d5-ecf2-4f48-afdc-15c2f7f8901a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unformatted_io">
+      <UniqueIdentifier>{004a54a3-a782-40c0-9dea-918f97394b43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="random_access_to_stream">
+      <UniqueIdentifier>{efe7c19c-623f-4845-a8a0-b62c646c3f0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="string_basics">
+      <UniqueIdentifier>{b95f8f77-c983-4e65-ab48-ea8d95467a6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tie_input_to_output">
+      <UniqueIdentifier>{d6f12827-f1a0-4ff3-b5a8-767a20ec1b50}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\io_library\utils\utils.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\io_library\unformatted_io.h">
+      <Filter>unformatted_io</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

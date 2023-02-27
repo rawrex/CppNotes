@@ -12,5 +12,5 @@
 
 int main()
 {
-	buffer_management_main();
+	condition_states_examples_main();
 }
