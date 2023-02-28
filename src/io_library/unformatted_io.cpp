@@ -69,7 +69,6 @@ void example_putback()
 {
 	char ch_get_first_time = '\0';
 	char ch_get_second_time = '\0';
-	char ch_other = 'y';
 
 	// Get a character from the stream
 	std::cin.get(ch_get_first_time);
@@ -84,16 +83,14 @@ void example_putback()
 	// These prints are the same
 	std::cout << ch_get_first_time << std::endl;
 	std::cout << ch_get_second_time << std::endl;
-	std::cout << ch_other << std::endl;
 
-	// We've got the value we've put back, the same one, we got on the first get
-	// The stream is changed for the second time and does not contain any characters.
+	// In the ch_get_second_time we've got the value we've put back, the same one, we got on the first get()
+	// The stream is changed for the second time and does not contain any characters. (note, the use of the Return will insert a newline)
+
+	char ch_other = 'y';
 	// Now, let's try to putback some other value, not the one we've took
-
-	// Does not fail for some reason. 
-	// Will do a research on the case
+	// Does not fail for some reason. Will do a research on the case
 	std::cin.putback(ch_other);
-	
 }
 
 void example_int_returns()
@@ -123,6 +120,6 @@ void unformatted_io_main()
 {
 	// example_peek();
 	// example_unget();
-	// example_putback();
+	example_putback();
 	// example_int_returns();
 }
