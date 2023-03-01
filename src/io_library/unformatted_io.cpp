@@ -122,8 +122,8 @@ void example_int_returns()
 
 void unformatted_io_main() 
 {
-	// example_peek();
-	// example_unget();
+	example_peek();
+	example_unget();
 	example_putback();
-	// example_int_returns();
+	example_int_returns();
 }
